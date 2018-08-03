@@ -1,0 +1,44 @@
+#main {
+    background-image: url('/css/12282014BlackjackTable.jpg');
+    background-repeat: no-repeat center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover; 
+   
+}
+
+#navBarTitle {
+    font-family: 'Abril Fatface', cursive;
+
+}
+
+#navDropButton {
+    background-color: black;
+
+}
+
+
+#mainCard {
+    height: 550px; 
+   background-color: rgba(0, 0, 0, 0.685);
+   /* margin-top: 50px; */
+   margin: 50px auto;
+
+   
+}
+
+#dealerCard {
+    height: 180px;
+    margin: 10px;
+
+}
+
+#playersCard {
+    height: 180px;
+    margin: 10px;
+}
+
+#cardPlacement {
+    justify-content: center;
+}
