@@ -1,3 +1,7 @@
+#money:hover {
+    background-color: black;
+}
+
 #main {
     background-image: url('/css/12282014BlackjackTable.jpg');
     background-repeat: no-repeat center;
@@ -24,21 +28,33 @@
    background-color: rgba(0, 0, 0, 0.685);
    /* margin-top: 50px; */
    margin: 50px auto;
+}
 
+#pOne {
+
+    height: 150px;
+}
+
+#pTwo {
    
+    height: 150px;
 }
 
-#dealerCard {
-    height: 180px;
-    margin: 10px;
-
+#dealer {
+    margin: auto;
 }
 
-#playersCard {
-    height: 180px;
-    margin: 10px;
+#pThree {
+   
+    height: 150px;
+    
 }
 
-#cardPlacement {
-    justify-content: center;
+#pFour {
+    
+    height: 150px;
+}
+
+#players {
+  
 }
