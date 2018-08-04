@@ -1,128 +1,77 @@
-<nav class="navbar navbar-light bg-light">
-    <a id="navBarTitle" class="navbar-brand" href="#">Blackjack</a>
-    <div class="btn-group">
-        <button id="navDropButton" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="false">
-            Options
-        </button>
-        <div class="dropdown-menu dropdown-menu-right">
-            <button class="dropdown-item" type="button">Play</button>
-            <button class="dropdown-item" type="button">Scores</button>
-            <button class="dropdown-item" type="button">Something else here</button>
+<body id="main">
+
+    <nav class="navbar navbar-light bg-light">
+        <a id="navBarTitle" class="navbar-brand" href="#">Blackjack</a>
+        <div class="btn-group">
+            <button id="navDropButton" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+                Options
+            </button>
+            <div class="dropdown-menu dropdown-menu-right">
+                <button class="dropdown-item" type="button">Play</button>
+                <button class="dropdown-item" type="button">Scores</button>
+                <button class="dropdown-item" type="button">Something else here</button>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <div id="mainCard" class="card" style="width: 60rem;">
-                <div class="card-body">
-                    <h6 class="card-subtitle mb-2 text-muted">Dealer's Cards</h6>
-                    {{!!--dynamically create cards based on how many have been played during the hand}}
-                    <div id="cardPlacement" class="row">
-                        {{!-- {{#each cards}} {{#if this.played}} --}}
-                        <div id="dealerCard" class="card" style="width: 8rem;">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-
-                            </div>
-                        </div>
-                        <div id="dealerCard" class="card" style="width: 8rem;">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-
-                            </div>
-                        </div>
-                        <div id="dealerCard" class="card" style="width: 8rem;">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-
-                            </div>
-                        </div>
-                        <div id="dealerCard" class="card" style="width: 8rem;">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-
-                            </div>
-                        </div>
-                        <div id="dealerCard" class="card" style="width: 8rem;">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-
-                            </div>
-                        </div>
-
-                    </div>
-                    <br> {{!-- {{/each}} {{/if}} --}} {{!! dynamically create players cards by how many have been played in the
-                    hand}} {{!-- {{!! {{!-- {{#each cards}} {{#if this.played}} --}}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="mainCard" class="card" style="width: 60rem;">
                     <div class="row">
-                        <div class="col-md-12">
-                            <h6 class="card-subtitle mb-2 text-muted">Player's Cards</h6>
+                        <div id="players" class="col-md-6">
+
+                            <div id="pOne" class="card" style="width: 12rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title">Player 1</h5>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div id="players" class="col-md-6">
+
+                            <div id="pTwo" class="card" style="width: 12rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title">Player 2</h5>
+
+                                </div>
+                            </div>
+
                         </div>
                     </div>
 
-                    <div id="cardPlacement" class="row">
-                        <div id="playersCard" class="card" style="width: 8rem;">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
+                    <div class="row">
+                        <div id="players" class="col-md-12">
+                            <div id="dealer" class="card" style="width: 12rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title">Dealer</h5>
 
+                                </div>
                             </div>
-                        </div>
-                        <div id="playersCard" class="card" style="width: 8rem;">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
 
-                            </div>
                         </div>
-                        <div id="playersCard" class="card" style="width: 8rem;">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-
-                            </div>
-                        </div>
-                        <div id="playersCard" class="card" style="width: 8rem;">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-
-                            </div>
-                        </div>
-                        <div id="playersCard" class="card" style="width: 8rem;">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-
-                            </div>
-                        </div>
-
                     </div>
 
+                    <div class="row">
+                        <div id="players" class="col-md-6">
+                            <div id="pThree" class="card" style="width: 12rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title">Player 3</h5>
+                                </div>
+                            </div>
+                        </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                        <div id="players" class="col-md-6">
+                            <div id="pFour" class="card" style="width: 12rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title">Player 4</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
 
                 </div>
@@ -130,28 +79,4 @@
         </div>
     </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
+</body>
