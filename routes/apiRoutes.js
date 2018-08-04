@@ -1,12 +1,16 @@
-var express = require('express');
-var router = express.Router();
+var db = require("../models");
+
+module.exports = function (app) {
+    app.get("/api/players/:game", function (req, res) {
+        db.Players.findeONe({
+            where: {
+                game: req.params.game
+            }
+        })
+    }).then(function (dbPlayer) {
+        console.log(dbPlayer);
+        res.json(dbPlayer);
+    })
+}
 
 
-
-router.get('/', function (req, res) {
-
-    res.render('index');
-
-});
-
-module.exports = router;
