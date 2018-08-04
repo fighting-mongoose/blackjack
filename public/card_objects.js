@@ -1,21 +1,11 @@
-var deck = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
 
-function shuffleArray(deck) {
-    for (var i = deck.length - 1; i > 0; i--) {
-        var j = Math.floor(Math.random() * (i + 1));
-        var temp = deck[i];
-        deck[i] = deck[j];
-        deck[j] = temp;
-    }
-    return deck;
-}
-var shuffled = shuffleArray(deck);
+
 var dealer = [];
 
 
-dealer.push(shuffled[1], shuffled[2]);
 
-console.log(shuffled);
+
+
 console.log("dealer " + dealer)
 
 var suites = ["spades", "hearts", "clubs", "diamonds"];
@@ -27,53 +17,51 @@ function GenerateCards() {
     for (let i = 0; i < suites.length; i++) {
         // console.log("this ran: " + i);
         for (let y = 0; y < cards.length; y++) {
-            // console.log("this ran inside loop: " + y);
+
             cardObjsArray.push(new Card(cards[y], suites[i]))
         }
+
     }
+    shuffleDeck();
 }
 
+
+
+function shuffle(array) {
+    // shuffles any array
+    var j, x, i;
+    for (i = array.length - 1; i > 0; i--) {
+        j = Math.floor(Math.random() * (i + 1));
+        x = array[i];
+        array[i] = array[j];
+        array[j] = x;
+    }
+    return array;
+}
+// SHUFFLING THE ORIGINAL DECK
+
+function shuffleDeck() {
+    for (var k = cardObjsArray.length - 1; k > 0; k--) {
+        var j = Math.floor(Math.random() * (k + 1));
+        var temp = cardObjsArray[k];
+        cardObjsArray[k] = cardObjsArray[j];
+        cardObjsArray[j] = temp;
+    }
+    console.log(cardObjsArray);
+    return cardObjsArray;
+}
 function Card(name, suite) {
     this.name = name;
     // this.cardsImage = image;
     this.cardsSuite = suite;
+    this.value = (this.name == "Jack" || this.name == "Queen" || this.name == "King") ? 10 : (this.name == "Ace") ? [1, 11] : parseInt(this.name);
+}
+function TotalSumofHand() {
 
-    // this.cardImage = function(){
-    //     switch(this.cardsSuite){
-    //         case "spades":
-    //         spadesImages(this.name);
-    //         break;
-    //     }
-    // }
-
-    // this.cardDisplay = function(){
-    //     if(this.name == "Jack" || this.name == "Queen" || this.name == "King" || this.name == "Ace"){
-    //         // use background image
-    //     }else{
-    //         // use this.cardSuite and 
-    //     }
-    // }
-
-    this.value = function () {
-        if (this.name == "Jack" || this.name == "Queen" || this.name == "King") {
-            return 10;
-        }
-
-        if (parseInt(this.name) > 1) {
-            return parseInt(this.name);
-        }
-
-        if (this.name == 'Ace') {
-            return 1 || 11;
-        }
-
-        return null;
-    }
 }
 
-
 function createDOMCard(cardObj) {
-    console.log("function ran")
+
 
     console.log(cardObj);
     var newDiv = $('<div>');
@@ -115,9 +103,12 @@ function createDOMCard(cardObj) {
     newDiv.text("new text");
     $('#cardDOM').appendTo(newDiv);
 }
+// this Generates the deck. in order first
 GenerateCards();
 
-console.log(cardObjsArray)
+
+
+
 
 
 
