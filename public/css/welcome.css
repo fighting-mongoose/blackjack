@@ -1,0 +1,13 @@
+#welcome {
+    background-color: rgba(0, 0, 0, 0.746);
+}
+
+.jumbotron {
+    width: 850px;
+    margin: 50px auto;
+    background: radial-gradient(rgba(255,0,0,0), rgba(255,0,0,1));
+}
+
+.lead {
+    
+}
