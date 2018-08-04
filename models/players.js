@@ -1,19 +1,19 @@
 module.exports = function (sequelize, DataTypes) {
     var Player = sequelize.define("Player", {
         name: {
-            type: Datatype.STRING,
+            type: DataTypes.STRING,
             allowNull: false
         },
         total_credits: {
-            type: Datatype.FLOAT,
+            type: DataTypes.FLOAT,
             allowNull: false
         },
         game: {
-            type: Datatype.INTEGER,
+            type: DataTypes.INTEGER,
             allowNull: false
         },
         waitingRoom: {
-            type: Datatype.BOOLEAN,
+            type: DataTypes.BOOLEAN,
             defaultValue: true
         },
         player_ready: {
@@ -21,13 +21,13 @@ module.exports = function (sequelize, DataTypes) {
             defaultValue: false,
         },
         bet: {
-            type: Datatype.FLOAT,
+            type: DataTypes.FLOAT,
             allowNull: false
         },
         hand_split: {
-            type: Datatype.ARRAY(Datatype.TEXT),
+            type: DataTypes.ARRAY(DataTypes.TEXT),
             allowNull: false
-        }
+        },
     });
     return Player;
 }
