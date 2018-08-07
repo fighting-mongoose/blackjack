@@ -1,60 +1,116 @@
 #money:hover {
-    background-color: black;
+   background-color: black;
 }
 
+.timer {
+   font-size: 25px;
+   color: black;
+}
 #main {
-    background-image: url('/css/12282014BlackjackTable.jpg');
-    background-repeat: no-repeat center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover; 
-   
+   background-image: url('/pics/12282014BlackjackTable.jpg');
+   background-repeat: no-repeat center;
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   -o-background-size: cover;
+   background-size: cover;
+ 
 }
 
 #navBarTitle {
-    font-family: 'Abril Fatface', cursive;
+   font-family: 'Abril Fatface', cursive;
 
 }
 
 #navDropButton {
-    background-color: black;
+   background-color: black;
 
 }
 
-
 #mainCard {
-    height: 550px; 
+   height: 550px;
    background-color: rgba(0, 0, 0, 0.685);
-   /* margin-top: 50px; */
    margin: 50px auto;
+   width: 60rem;
+   position: relative;
+   max-width: 100%;
+   border: solid black 5px;
+
+}
+
+.bottom-row {
+   position: absolute;
+   bottom: 0;
+   width: 103.2%;
 }
 
 #pOne {
-
-    height: 150px;
+   height: 100px;
+   border: solid black 2px;
+   background-color: whitesmoke;
 }
 
 #pTwo {
-   
-    height: 150px;
+  position: relative;
+  margin: 0 0 0 auto;
+   height: 100px;
+   border: solid black 2px;
+   background-color: whitesmoke;
 }
 
 #dealer {
-    margin: auto;
+   position: relative;
+   top: 140%;
+   left: 40%;
+   z-index: 11;
+   border: solid black 2px;
+   background-color: whitesmoke;
+ 
 }
 
 #pThree {
-   
-    height: 150px;
-    
+   height: 100px;
+   border: solid black 2px;
+   background-color: whitesmoke;
 }
 
+.right-align {
+   width: 12rem;
+   margin: 0 0 0 auto;
+}
 #pFour {
-    
-    height: 150px;
+   margin: 0 0 0 auto;
+   height: 100px;
+   border: solid black 2px;
+   background-color: whitesmoke;
 }
 
 #players {
-  
+   height: 100px;
+}
+
+#userPicSelection {
+   height: 40px;
+   width: 40px;
+   margin-left: 10px;
+ 
+}
+
+#moneyLeft {
+   margin-left: 5px;
+}
+
+#sideButtons {
+   margin-top: 400px;
+
+}
+
+#addMoney {
+   padding: 10px;
+   margin-bottom: 10px;
+   border: solid black 2px;
+}
+
+#cashOut {
+   padding: 10px;
+   border: solid black 2px;
 }
