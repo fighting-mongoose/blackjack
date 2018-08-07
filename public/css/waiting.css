@@ -5,6 +5,7 @@
 h1 {
     font-family: 'Hanalei Fill', cursive;
 }
+
 .jumbotron {
     color: black;
     text-align: center;
@@ -14,10 +15,9 @@ h1 {
 }
 
 .lead {
-    text-align: right;
     font-size: 10px;
     font-family: 'Audiowide', cursive;
-
+    
 }
 
 #money {

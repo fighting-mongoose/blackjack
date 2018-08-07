@@ -3,14 +3,16 @@ var db = require("../models");
 module.exports = function (app) {
     //gets players data for a single game
     app.get("/api/players/:game", function (req, res) {
-        db.Player.findeAll({
-            attributes: [name, total_credits, player_ready, bet, hand_split],
+
+        db.Players.findOne({
+          attributes: [name, total_credits, player_ready, bet, hand_split],
             where: {
                 game: req.params.game
             }
         }).then(function (dbPlayer) {
             console.log(dbPlayer);
             res.json(dbPlayer);
+
         })
     });
 
@@ -24,6 +26,7 @@ module.exports = function (app) {
         }).then(function (dbPlayer) {
             console.log(dbPlayer);
             res.json(dbPlayer);
+
         })
     })
 
