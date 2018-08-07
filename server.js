@@ -20,11 +20,11 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Import routes and give the server access to them.
-// var routes = require("./routes/apiRoutes.js");
-console.log("this is getting to the route in the server file")
-var routes = require("./routes/htmlRoutes.js");
-console.log("line 26")
-app.use(routes);
+
+require("./routes/apiRoutes.js")(app);
+require("./routes/htmlRoutes")(app);
+
+
 
 app.listen(PORT, function () {
     console.log("App now listening at localhost:" + PORT);

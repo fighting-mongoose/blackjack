@@ -27,7 +27,7 @@ module.exports = function (sequelize, DataTypes) {
         hand_split: {
             type: DataTypes.ARRAY(DataTypes.TEXT),
             allowNull: false
-        }
+        },
     });
     return Player;
 }
