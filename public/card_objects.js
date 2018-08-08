@@ -1,54 +1,33 @@
-
-
-var dealer = [];
-
-
-
-
-
-console.log("dealer " + dealer)
-
 var suites = ["spades", "hearts", "clubs", "diamonds"];
 var cards = ["2", "3", "4", '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace'];
+var numberPlayers = 3;//$("#numberPlayers");
 
-var cardObjsArray = [];
+// EMPTY ARRAY FOR THE DECK TO GET SHUFFLED INTO
+var deck = [];
 
 function GenerateCards() {
     for (let i = 0; i < suites.length; i++) {
         // console.log("this ran: " + i);
         for (let y = 0; y < cards.length; y++) {
 
-            cardObjsArray.push(new Card(cards[y], suites[i]))
+            deck.push(new Card(cards[y], suites[i]))
         }
 
     }
     shuffleDeck();
 }
-
-
-
-function shuffle(array) {
-    // shuffles any array
-    var j, x, i;
-    for (i = array.length - 1; i > 0; i--) {
-        j = Math.floor(Math.random() * (i + 1));
-        x = array[i];
-        array[i] = array[j];
-        array[j] = x;
-    }
-    return array;
-}
+console.log(deck);
 // SHUFFLING THE ORIGINAL DECK
 
 function shuffleDeck() {
-    for (var k = cardObjsArray.length - 1; k > 0; k--) {
+    for (var k = deck.length - 1; k > 0; k--) {
         var j = Math.floor(Math.random() * (k + 1));
-        var temp = cardObjsArray[k];
-        cardObjsArray[k] = cardObjsArray[j];
-        cardObjsArray[j] = temp;
+        var temp = deck[k];
+        deck[k] = deck[j];
+        deck[j] = temp;
     }
-    console.log(cardObjsArray);
-    return cardObjsArray;
+
+    return deck;
 }
 function Card(name, suite) {
     this.name = name;
@@ -59,33 +38,56 @@ function Card(name, suite) {
 function TotalSumofHand() {
 
 }
+function dealCards(deck) {
+    var playersHandTotal = 2;
 
-function createDOMCard(cardObj) {
+    var playersCards = [];
+
+    for (var p = 0; p < playersHandTotal; p++) {
+        var randomCardGrabber = Math.floor(Math.random() * 51);
+        playersCards.push(deck[randomCardGrabber]);
+
+    } console.log("players cards should be " + playersCards)
+    console.log(randomCardGrabber);
+    $('body').append(playersCards[0].name + ' ' + playersCards[0].cardsSuite + " || " + playersCards[1].name + ' ' + playersCards[1].cardsSuite + "<br>")
+}
+// so passing out two cards per player. if player has cards then make it true.
+
+function passOutCards() {
+    console.log("done son")
+    for (var m = 0; m < numberPlayers; m++) {
+        // need to run dealCards for the number of each player
+
+        dealCards(deck);
+
+    }
+}
+function createDOMCard(deck) {
 
 
-    console.log(cardObj);
+
     var newDiv = $('<div>');
 
 
-    if (cardObj.name == "Jack" || cardObj.name == "Queen" || cardObj.name == "cardObj" || cardObj.name == "Ace") {
+    if (Card.name == "Jack" || Card.name == "Queen" || Card.name == "King" || Card.name == "Ace") {
 
         console.log("face value")
 
-        switch (cardObj.name) {
+        switch (Card.name) {
             case "Jack":
-                newDiv.css('background-image', imageUrl);
+                newDiv.css('background-image', imageUrl + Card.name);
                 break;
 
             case "Queen":
-                newDiv.css('background-image', imageUrl);
+                newDiv.css('background-image', imageUrl + Card.name);
                 break;
 
             case "King":
-                newDiv.css('background-image', imageUrl);
+                newDiv.css('background-image', imageUrl + Card.name);
                 break;
 
             case "Ace":
-                newDiv.css('background-image', imageUrl);
+                newDiv.css('background-image', imageUrl + Card.name);
                 break;
         }
 
@@ -93,11 +95,11 @@ function createDOMCard(cardObj) {
         console.log("number card");
         // use cardObj.cardSuite
         newDiv.attr({
-            "class": cardObj.cardsSuite,
-            "data-value": cardObj.value()
+            "class": Card.cardsSuite,
+            "data-value": Card.value
         });
 
-        console.log(cardObj.name);
+        console.log(Card.name);
 
     }
     newDiv.text("new text");
@@ -112,18 +114,21 @@ GenerateCards();
 
 
 
-// $(document).on("click", function () {
+$(document).on("click", function () {
+    dealCards(deck);
+    passOutCards();
+});
 //     console.log('ive been clicked');
 
 //     let newDiv = $('<div>');
 
-//     newDiv.text(cardObjsArray[0].name)
+//     newDiv.text(deck[0].name)
 //     newDiv.attr({
-//         "class": cardObjsArray[0].cardsSuite + " topLeft bottomRight",
-//         "data-value": cardObjsArray[0].value()
+//         "class": deck[0].cardsSuite + " topLeft bottomRight",
+//         "data-value": deck[0].value()
 //     });
 
-//     // $('#cardDOM').text(cardObjsArray[0].name)
+//     // $('#cardDOM').text(deck[0].name)
 //     $("#cardDOM").append(newDiv);
 
 // })
