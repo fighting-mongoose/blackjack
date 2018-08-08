@@ -1,3 +1,3 @@
-DROP DATABASE CardPlayers_db;
+DROP DATABASE IF EXISTS blackJack_db;
 
-CREATE DATABASE CardPlayers_db;
+CREATE DATABASE blackJack_db;
