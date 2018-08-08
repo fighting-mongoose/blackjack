@@ -1,84 +1,138 @@
 <body id="main">
-
     <nav class="navbar navbar-light bg-light">
         <a id="navBarTitle" class="navbar-brand" href="#">Blackjack</a>
-        <div class="btn-group">
-            <button id="navDropButton" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                aria-expanded="false">
-                Options
-            </button>
-            <div class="dropdown-menu dropdown-menu-right">
-                <button class="dropdown-item" type="button">Play</button>
-                <button class="dropdown-item" type="button">Scores</button>
-                <button class="dropdown-item" type="button">Something else here</button>
-            </div>
-        </div>
     </nav>
-
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div id="mainCard" class="card" style="width: 60rem;">
-                    <div class="row">
-                        <div id="players" class="col-md-6">
-
-                            <div id="pOne" class="card" style="width: 12rem;">
-                                <div class="card-body">
-                                    <h5 class="card-title">Player 1</h5>
-
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div id="players" class="col-md-6">
-
-                            <div id="pTwo" class="card" style="width: 12rem;">
-                                <div class="card-body">
-                                    <h5 class="card-title">Player 2</h5>
-
-                                </div>
-                            </div>
-
-                        </div>
+                <div class='timer' data-seconds-left="15">
+                    <div class="jst-seconds">
+                        <strong>15</strong>
                     </div>
-
-                    <div class="row">
-                        <div id="players" class="col-md-12">
-                            <div id="dealer" class="card" style="width: 12rem;">
-                                <div class="card-body">
-                                    <h5 class="card-title">Dealer</h5>
-                                    <button type="button" class="dealerButton"> Click me!</button>
-
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div id="players" class="col-md-6">
-                            <div id="pThree" class="card" style="width: 12rem;">
-                                <div class="card-body">
-                                    <h5 class="card-title">Player 3</h5>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div id="players" class="col-md-6">
-                            <div id="pFour" class="card" style="width: 12rem;">
-                                <div class="card-body">
-                                    <h5 class="card-title">Player 4</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
+                    <div class="jst-clearDiv"></div>
                 </div>
             </div>
         </div>
     </div>
-
+    <div class="row">
+        <div class="col-md-10">
+            <div id="mainCard" class="card" style="width: 60rem;">
+                <div class="row">
+                    <div id="players" class="col-md-4">
+                        <div id="pOne" class="card" style="width: 12rem;">
+                            <div class="card-body">
+                                <div class="row">
+                                    <span id="nameOne">
+                                        <h5 class="card-title">Player 1</h5>
+                                    </span>
+                                    <img id="userPicSelection" src="pics/monopoly_token_shoe.png">
+                                </div>
+                                <div class="row">
+                                    <button id="stayButton" class="btn btn-outline-success btn-sm">Stay</button>
+                                    <button id="hitButton" class="btn btn-outline-danger btn-sm">Hit Me</button>
+                                    <span id="moneyLeft">$</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="row">
+                            <div id="pOneCards"></div>
+                            <div id="pTwoCards"></div>
+                        </div>
+                    </div>
+                    <div id="players" class="col-md-4">
+                        <div id="pTwo" class="card" style="width: 12rem;">
+                            <div class="card-body">
+                                <div class="row">
+                                    <span id="nameTwo">
+                                        <h5 class="card-title">Player 2</h5>
+                                    </span>
+                                    <img id="userPicSelection" src="pics/monopoly_token_shoe.png">
+                                </div>
+                                <div class="row">
+                                    <button id="stayButton" class="btn btn-outline-success btn-sm">Stay</button>
+                                    <button id="hitButton" class="btn btn-outline-danger btn-sm">Hit Me</button>
+                                    <span id="moneyLeft">$</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div id="players" class="col-md-12" style="position:relative;">
+                        <div id="dealer" class="card" style="width: 10rem;">
+                            <div class="card-body">
+                                <div class="row">
+                                    <h5 class="card-title">Dealer</h5>
+                                    <img id="userPicSelection" src="/pics/dealer2.jpg" alt="Dealer Icon" />
+                                </div>
+                            </div>
+                        </div>
+                        <div id="dealerCards"></div>
+                    </div>
+                </div>
+                <div class="row bottom-row">
+                    <div id="players" class="col-md-4">
+                        <div id="pThree" class="card" style="width: 12rem;">
+                            <div class="card-body">
+                                <div class="row">
+                                    <span id="nameThree">
+                                        <h5 class="card-title">Player 3</h5>
+                                    </span>
+                                    <img id="userPicSelection" src="pics/monopoly_token_shoe.png">
+                                </div>
+                                <div class="row">
+                                    <button id="stayButton" class="btn btn-outline-success btn-sm">Stay</button>
+                                    <button id="hitButton" class="btn btn-outline-danger btn-sm">Hit Me</button>
+                                    <span id="moneyLeft">$</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="row">
+                            <div id="pThreeCards"></div>
+                            <div id="pFourCards"></div>
+                        </div>
+                    </div>
+                    <div id="players" class="col-md-4 right-align">
+                        <div id="pFour" class="card" style="width: 12rem;">
+                            <div class="card-body">
+                                <div class="row">
+                                    <span id="nameFour">
+                                        <h5 class="card-title">Player 4</h5>
+                                    </span>
+                                    <img id="userPicSelection" src="pics/monopoly_token_shoe.png">
+                                </div>
+                                <div class="row">
+                                    <button id="stayButton" class="btn btn-outline-success btn-sm">Stay</button>
+                                    <button id="hitButton" class="btn btn-outline-danger btn-sm">Hit Me</button>
+                                    <span id="moneyLeft">$</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="sideButtons" class="col-md-2">
+            <div class="row">
+                <button id="addMoney" class="btn btn-success">Add Funds $</button>
+            </div>
+            <div class="row">
+                <button id="cashOut" class="btn btn-danger">Cash Out</button>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script>
+        "use strict";
+        let $ = require("jquery");
+        require("jquery-simple-timer")($); // passing jQuery as argument
+        $(function () {
+            $('.timer').startTimer();
+        });
+        { { !--$('.timer').startTimer(); --} }
+    </script>
 </body>

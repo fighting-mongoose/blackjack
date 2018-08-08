@@ -29,16 +29,14 @@ require("./routes/htmlRoutes")(app);
 
 
 io.on('connection', function (socket) {
-    socket.on('dealerButton', function () {
+    socket.on('dealerButton', function (message) {
         var cardNumber = [Math.floor(Math.random() * deck.length - 1)];
-        var card = deck[cardNumber];
-        console.log("here is the card " + card.name + " " + card.cardsSuite + " the vaule of the card is " + card.value);
+        var card = [deck[cardNumber], message];
+        console.log("here is the card " + card[0].name + " " + card[0].cardsSuite + " the vaule of the card is " + card[0].value);
         console.log(deck.length);
         discardPile.push(deck[cardNumber]);
         console.log("number in graveyard " + discardPile.length + " card placed " + deck[cardNumber]);
         deck.splice(cardNumber, 1);
-
-
         io.emit("dealerButton", card);
     });
 });
