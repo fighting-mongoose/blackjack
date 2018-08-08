@@ -128,4 +128,14 @@
     </div>
     </div>
 
+    <script>
+        "use strict";
+        let $ = require("jquery");
+        require("jquery-simple-timer")($); // passing jQuery as argument
+        $(function () {
+            $('.timer').startTimer();
+        });
+        { { !--$('.timer').startTimer(); --} }
+    </script>
+
 </body>
