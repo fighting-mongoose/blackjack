@@ -44,7 +44,7 @@
 }
 
 #pOne {
-   height: 100px;
+   height: auto;
    border: solid black 2px;
    background-color: whitesmoke;
 }
@@ -52,7 +52,7 @@
 #pTwo {
   position: relative;
   margin: 0 0 0 auto;
-   height: 100px;
+   height: auto;
    border: solid black 2px;
    background-color: whitesmoke;
 }
@@ -68,24 +68,20 @@
 }
 
 #pThree {
-   height: 100px;
+   height: auto;
    border: solid black 2px;
    background-color: whitesmoke;
 }
 
 .right-align {
-   width: 12rem;
    margin: 0 0 0 auto;
-}
-#pFour {
-   margin: 0 0 0 auto;
-   height: 100px;
-   border: solid black 2px;
-   background-color: whitesmoke;
 }
 
-#players {
-   height: 100px;
+#pFour {
+   margin: 0 0 0 auto;
+   height: auto;
+   border: solid black 2px;
+   background-color: whitesmoke;
 }
 
 #userPicSelection {
