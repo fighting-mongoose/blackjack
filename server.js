@@ -7,6 +7,7 @@ var exphbs = require("express-handlebars");
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static("public"));
 
+
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
 
