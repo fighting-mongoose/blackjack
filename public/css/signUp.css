@@ -1,0 +1,15 @@
+img {
+    height: 50px;
+    width: 60px;
+    
+    margin: 10px;
+}
+
+#createPlayer {
+    background-color: lightgray;
+}
+
+#infoForm {
+    margin-top: 50px;
+    color: black;
+}
