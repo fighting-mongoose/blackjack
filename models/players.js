@@ -1,6 +1,12 @@
+var bcrypt = require("bcrypt");
+
 module.exports = function (sequelize, DataTypes) {
     var Player = sequelize.define("Player", {
         name: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        token: {
             type: DataTypes.STRING,
             allowNull: false
         },
@@ -28,6 +34,18 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.ARRAY(DataTypes.TEXT),
             allowNull: false
         },
-    });
+        email: DataTypes.STRING,
+        password: DataTypes.STRING
+    }, {
+            freezeTableName: true,
+            instanceMethods: {
+                generateHash(password) {
+                    return bcrypt.hash(password, bcrypt.genSaltSync(10));
+                },
+                validPassword(password) {
+                    return bcrypt.compare(password, this.password);
+                }
+            }
+        });
     return Player;
 }
