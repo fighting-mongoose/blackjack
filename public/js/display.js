@@ -36,7 +36,7 @@ $(document).ready(function () {
             name: $("#signUpName").val().trim(),
             email: $("#inputEmail4").val().trim(),
             password: $("#inputPassword4").val().trim(),
-            icon: "3",
+            icon: $("input[name=blackjackImg]:checked").val(),
             totalCredits: $("#moneyAmount").val()
         }
         console.log(newPlayer);

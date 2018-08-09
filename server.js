@@ -1,11 +1,15 @@
 var express = require("express");
 var bodyParser = require("body-parser");
+var methodOverride = require('method-override');
+var exphbs = require("express-handlebars");
+var db = require("./models");
+
 var PORT = process.env.PORT || 3000;
 var app = express();
-var exphbs = require("express-handlebars");
-var methodOverride = require('method-override');
+
 var http = require('http').Server(app);
 var io = require("socket.io")(http);
+
 var deck = require(__dirname + "/cardObject.js");
 var discardPile = [];
 // Serve static content for the app from the "public" directory in the application directory.
@@ -13,7 +17,7 @@ app.use(express.static("public"));
 
 
 // parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // parse application/json
 app.use(bodyParser.json());
@@ -33,7 +37,7 @@ io.on('connection', function (socket) {
     socket.on('dealerButton', function (message) {
         var cardNumber = [Math.floor(Math.random() * deck.length - 1)];
         var card = [deck[cardNumber], message];
-        console.log("here is the card " + card[0].name + " " + card[0].cardsSuite + " the vaule of the card is " + card[0].value);
+        console.log("here is the card " + card[0].name + " " + card[0].cardsSuite + " the value of the card is " + card[0].value);
         console.log(deck.length);
         discardPile.push(deck[cardNumber]);
         console.log("number in graveyard " + discardPile.length + " card placed " + deck[cardNumber]);
@@ -41,6 +45,8 @@ io.on('connection', function (socket) {
         io.emit("dealerButton", card);
     });
 });
-http.listen(PORT, function () {
-    console.log("App now listening at localhost:" + PORT);
+db.sequelize.sync({ force: false }).then(function () {
+    http.listen(PORT, function () {
+        console.log("App now listening at localhost:" + PORT);
+    });
 });
