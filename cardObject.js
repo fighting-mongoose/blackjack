@@ -63,7 +63,7 @@ function createDOMCard(cardObj) {
     var newDiv = $('<div>');
 
 
-    if (cardObj.name == "Jack" || cardObj.name == "Queen" || cardObj.name == "cardObj" || cardObj.name == "Ace") {
+    if (cardObj.name == "Jack" || cardObj.name == "Queen" || cardObj.name == "King" || cardObj.name == "Ace") {
 
         console.log("face value")
 

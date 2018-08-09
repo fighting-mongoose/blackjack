@@ -6,9 +6,9 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false
         },
-        token: {
+        icon: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
         },
         total_credits: {
             type: DataTypes.FLOAT,
@@ -16,7 +16,7 @@ module.exports = function (sequelize, DataTypes) {
         },
         game: {
             type: DataTypes.INTEGER,
-            allowNull: false
+            allowNull: true
         },
         waitingRoom: {
             type: DataTypes.BOOLEAN,
@@ -28,12 +28,12 @@ module.exports = function (sequelize, DataTypes) {
         },
         bet: {
             type: DataTypes.FLOAT,
-            allowNull: false
+            allowNull: true
         },
-        hand_split: {
-            type: DataTypes.ARRAY(DataTypes.TEXT),
-            allowNull: false
-        },
+        // hand_split: {
+        //     type: DataTypes.ARRAY(DataTypes.TEXT),
+        //     allowNull: false
+        // },
         email: DataTypes.STRING,
         password: DataTypes.STRING
     }, {
@@ -47,5 +47,15 @@ module.exports = function (sequelize, DataTypes) {
                 }
             }
         });
+
+    Player.associate = function (models) {
+        // We're saying that a Player should belong to an Game
+        // A Player can't be created without an Game due to the foreign key constraint
+        Player.belongsTo(models.Game, {
+            foreignKey: {
+                allowNull: false
+            }
+        });
+    };
     return Player;
-}
+};
