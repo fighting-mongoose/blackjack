@@ -37,7 +37,7 @@ $(document).ready(function () {
             email: $("#inputEmail4").val().trim(),
             password: $("#inputPassword4").val().trim(),
             icon: $("input[name=blackjackImg]:checked").val(),
-            totalCredits: $("#moneyAmount").val()
+            total_credits: parseFloat($("#moneyAmount").val())
         }
         console.log(newPlayer);
 
@@ -45,7 +45,8 @@ $(document).ready(function () {
             type: "POST",
             data: newPlayer
         }).then(function () {
-            console.log("fuck!");
+            window.location.href = "/waitingRoom";
+            console.log("successfully signed up!");
         });
 
     });
