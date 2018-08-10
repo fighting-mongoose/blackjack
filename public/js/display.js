@@ -19,12 +19,14 @@ $(document).ready(function () {
         $.ajax('/api/players', {
             type: "POST",
             data: newPlayer
-        }).then(function () {
-
+        }).then(function (player) {
+            console.log("call back from new player");
+            console.log(player);
             //get find all where 
-
             window.location.href = "/index";
             console.log("successfully signed up!");
+
+
 
         });
 
@@ -37,8 +39,9 @@ $(document).ready(function () {
         window.location.href = "/index";
 
 
-
     })
+
+
 });
 
 

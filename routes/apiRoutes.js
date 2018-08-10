@@ -37,6 +37,13 @@ module.exports = function (app) {
         });
     });
 
+    app.get("index/player/game", function (req, res) {
+
+        res.render('index', { gameData });
+    })
+
+    // // update user where signed in is true and change signed in status to false when signed out
+
 
 
 }

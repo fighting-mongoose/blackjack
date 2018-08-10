@@ -30,22 +30,15 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.INTEGER,
             allowNull: true
         },
-        waitingRoom: {
-            type: DataTypes.BOOLEAN,
-            defaultValue: true
-        },
-        player_ready: {
+
+        player_signed_in: {
             type: DataTypes.BOOLEAN,
             defaultValue: false,
         },
         bet: {
             type: DataTypes.FLOAT,
             allowNull: true
-        }
-        // hand_split: {
-        //     type: DataTypes.ARRAY(DataTypes.TEXT),
-        //     allowNull: false
-        // },
+        },
 
     }, {
             freezeTableName: true,
