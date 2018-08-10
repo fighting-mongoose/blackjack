@@ -21,6 +21,7 @@ $(document).ready(function () {
             data: newPlayer
         }).then(function () {
 
+
             window.location.href = "/index";
             console.log("successfully signed up!");
 
@@ -31,6 +32,7 @@ $(document).ready(function () {
     //log in for returning players
     $("#signIn").on("click", function (event) {
         event.preventDefault();
+
         var user = {
             email: $("#inputEmail4").val(),
             password: $("#inputPassword4").val()
@@ -50,6 +52,7 @@ $(document).ready(function () {
             }
         });
     })
+
 
 
 

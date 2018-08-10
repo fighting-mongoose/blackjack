@@ -7,7 +7,7 @@ module.exports = function (app) {
             console.log(newPlayer);
             res.json(newPlayer);
         });
-    })
+    });
 
     app.get("/api/players/signin", function (req, res) {
         //grab body data to run a query. 
