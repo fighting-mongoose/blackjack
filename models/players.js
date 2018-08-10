@@ -26,17 +26,17 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.FLOAT,
             allowNull: false
         },
-        game: {
-            type: DataTypes.INTEGER,
-            allowNull: true
-        },
-        waitingRoom: {
+        // game: {
+        //     type: DataTypes.INTEGER,
+        //     allowNull: true
+        // },
+        // waitingRoom: {
+        //     type: DataTypes.BOOLEAN,
+        //     defaultValue: true
+        // },
+        player_signed_in: {
             type: DataTypes.BOOLEAN,
-            defaultValue: true
-        },
-        player_ready: {
-            type: DataTypes.BOOLEAN,
-            defaultValue: false,
+            defaultValue: true,
         },
         bet: {
             type: DataTypes.FLOAT,
@@ -59,14 +59,14 @@ module.exports = function (sequelize, DataTypes) {
     });
 
 
-    Player.associate = function (models) {
-        // We're saying that a Player should belong to an Game
-        // A Player can't be created without an Game due to the foreign key constraint
-        Player.belongsTo(models.Game, {
-            foreignKey: {
-                allowNull: false
-            }
-        });
-    };
+    // Player.associate = function (models) {
+    //     // We're saying that a Player should belong to an Game
+    //     // A Player can't be created without an Game due to the foreign key constraint
+    //     Player.belongsTo(models.Game, {
+    //         foreignKey: {
+    //             allowNull: false
+    //         }
+    //     });
+    // };
     return Player;
 };

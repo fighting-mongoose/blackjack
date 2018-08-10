@@ -3,7 +3,7 @@ console.log("Hello World!");
 
 $(document).ready(function () {
 
-
+    //sign up form to create a new player
     $("#signUpSubmit").on("click", function (event) {
         event.preventDefault();
         console.log("I clicked");
@@ -21,24 +21,38 @@ $(document).ready(function () {
             data: newPlayer
         }).then(function () {
 
-            window.location.href = "/waitingRoom";
+            window.location.href = "/index";
             console.log("successfully signed up!");
 
         });
 
     });
 
-
-
-    $("#playButton").on("click", function () {
+    //log in for returning players
+    $("#signIn").on("click", function (event) {
         event.preventDefault();
+        var user = {
+            email: $("#inputEmail4").val(),
+            password: $("#inputPassword4").val()
+        };
 
-        var newGame = {
-            count: 
+        $.ajax({
+            type: 'GET',
+            data: JSON.stringify(user),
+            contentType: 'application/json',
+            url: 'http://localhost:3000/api/players/signin',
 
-
-        }
+        }).then(function (data) {
+            if (data == true) {
+                window.location.href = "/index";
+            } else {
+                alert("You are not a player!")
+            }
+        });
     })
+
+
+
 });
 
 
