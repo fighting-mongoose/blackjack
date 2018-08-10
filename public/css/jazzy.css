@@ -50,13 +50,13 @@
    background-color: whitesmoke;
 }
 
-#pTwo {
+/* #pTwo {
   position: relative;
   margin: 0 0 0 auto;
    height: auto;
    border: solid black 2px;
    background-color: whitesmoke;
-}
+} */
 
 #dealer {
    position: relative;
@@ -68,22 +68,22 @@
  
 }
 
-#pThree {
+/* #pThree {
    height: auto;
    border: solid black 2px;
    background-color: whitesmoke;
-}
+} */
 
-.right-align {
+/* .right-align {
    margin: 0 0 0 auto;
-}
+} */
 
-#pFour {
+/* #pFour {
    margin: 0 0 0 auto;
    height: auto;
    border: solid black 2px;
    background-color: whitesmoke;
-}
+} */
 
 #userPicSelection {
    height: 40px;
@@ -123,4 +123,14 @@
 }
 .forceWidth {
   width: 80%;
+}
+
+#PlayerInfo {
+  color: white;
+
+}
+
+#icon {
+  height: 5%;
+  width: 5%;
 }
