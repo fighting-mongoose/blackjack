@@ -10,6 +10,7 @@ module.exports = function (app) {
 
     app.get('/index', function (req, res) {
 
+
         res.render('index')
         db.Player.findAll({
 
@@ -18,6 +19,7 @@ module.exports = function (app) {
             res.json(gameData);
             res.render('index', { gameData: gameData });
         });
+
 
     });
 

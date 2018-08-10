@@ -102,5 +102,14 @@ function createDOMCard(cardObj) {
 // this Generates the deck. in order first
 GenerateCards();
 var deck = cardObjsArray;
+
+$(document).on("click", function () {
+    dealCards(deck);
+    passOutCards();
+});
+
 console.log("thi is algo the " + deck[1].name + " " + cardObjsArray[1].name + " " + cardObjsArray[1].cardsSuite);
+
+
 module.exports = deck;
+

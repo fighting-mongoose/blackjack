@@ -3,7 +3,7 @@ console.log("Hello World!");
 
 $(document).ready(function () {
 
-
+    //sign up form to create a new player
     $("#signUpSubmit").on("click", function (event) {
         event.preventDefault();
         console.log("I clicked");
@@ -19,10 +19,11 @@ $(document).ready(function () {
         $.ajax('/api/players', {
             type: "POST",
             data: newPlayer
-        }).then(function (player) {
-            console.log("call back from new player");
-            console.log(player);
-            //get find all where 
+
+        }).then(function () {
+
+
+
             window.location.href = "/index";
             console.log("successfully signed up!");
 
@@ -32,14 +33,32 @@ $(document).ready(function () {
 
     });
 
-
-
-    $("#playButton").on("click", function () {
+    //log in for returning players
+    $("#signIn").on("click", function (event) {
         event.preventDefault();
-        window.location.href = "/index";
 
+        var user = {
+            email: $("#inputEmail4").val(),
+            password: $("#inputPassword4").val()
+        };
 
+        $.ajax({
+            type: 'GET',
+            data: JSON.stringify(user),
+            contentType: 'application/json',
+            url: 'http://localhost:3000/api/players/signin',
+
+        }).then(function (data) {
+            if (data == true) {
+                window.location.href = "/index";
+            } else {
+                alert("You are not a player!")
+            }
+        });
     })
+
+
+
 
 
 });

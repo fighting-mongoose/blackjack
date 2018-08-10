@@ -7,37 +7,23 @@
             <div class="col-md-12">
 
 
-                <div id="mainCard" class="card" style="width: 60rem;">
+                <div id="mainCard" class="card">
                     <div class="card-body">
                         <h6 class="card-subtitle mb-2 text-muted">Dealer's Cards</h6>
                         {{!!--dynamically create cards based on how many have been played during the hand}}
                         <div id="cardPlacement" class="row">
                             {{!-- {{#each cards}} {{#if this.played}} --}}
-                            <div id="dealerCard" class="card" style="width: 8rem;">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                </div>
+                            <div id="dealerCardOne" class="customCard">
+
+                                <img src="pics/sa.png">
+
                             </div>
-                            <div id="dealerCard" class="card" style="width: 8rem;">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                </div>
+                            <div id="dealerCardTwo" class="customCard">
+
+                                <img src="pics/blank.png">
+
                             </div>
-                            <div id="dealerCard" class="card" style="width: 8rem;">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                </div>
-                            </div>
-                            <div id="dealerCard" class="card" style="width: 8rem;">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                </div>
-                            </div>
-                            <div id="dealerCard" class="card" style="width: 8rem;">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                </div>
-                            </div>
+
                         </div>
                         <br> {{!-- {{/each}} {{/if}} --}} {{!! dynamically create players cards by how many have been played
                         in the hand}} {{!-- {{!! {{!-- {{#each cards}} {{#if this.played}} --}}
@@ -47,31 +33,13 @@
                             </div>
                         </div>
                         <div id="cardPlacement" class="row">
-                            <div id="playersCard" class="card" style="width: 8rem;">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                </div>
+                            <div id="playersCard" class="customCard">
+                                <img src="pics/sa.png">
                             </div>
-                            <div id="playersCard" class="card" style="width: 8rem;">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                </div>
+                            <div id="playersCard" class="customCard">
+                                <img src="pics/blank.png">
                             </div>
-                            <div id="playersCard" class="card" style="width: 8rem;">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                </div>
-                            </div>
-                            <div id="playersCard" class="card" style="width: 8rem;">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                </div>
-                            </div>
-                            <div id="playersCard" class="card" style="width: 8rem;">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                </div>
-                            </div>
+
                         </div>
 
                         <div class="row">
@@ -81,15 +49,16 @@
 
 
                     </div>
-                </div>
-                <div id="sideButtons" class="col-md-2">
-                    <div class="row">
-                        <button id="addMoney" class="btn btn-success">Add $</button>
+                    <div id="sideButtons" class="col-md-2">
+                        <div class="row">
+                            <button id="addMoney" class="btn btn-success forceWidth"> Add $</button>
+                        </div>
+                        <div class="row">
+                            <button id="cashOut" class="btn btn-danger forceWidth">Cash Out</button>
+                        </div>
                     </div>
-                    <div class="row">
-                        <button id="cashOut" class="btn btn-danger">Cash Out</button>
-                    </div>
                 </div>
+
 
             </div>
         </div>
