@@ -13,7 +13,8 @@ module.exports = function (app) {
             include: [{
                 model: db.Player,
                 where: {
-                    GameId: 1
+                    GameId: 1,
+                    player_ready: true
                 }
             }],
         }).then(function (gameData) {

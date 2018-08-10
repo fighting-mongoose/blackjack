@@ -6,11 +6,8 @@
         <div class="row">
             <div class="col-md-12">
 
-                <div class='timer' data-seconds-left="15">
-                    <div class="jst-seconds">
-
-                    </div>
-                    <div class="jst-clearDiv"></div>
+                <div class="timer">
+                    <span id="timeLeft"></span>
                 </div>
             </div>
         </div>
@@ -21,14 +18,19 @@
                 <div class="row">
                     <div id="players" class="col-md-4">
 
+                        {{#each}} {{if}} {{this.Game.id == this.Player.game}}
+
                         <div id="pOne" class="card" style="width: 12rem;">
                             <div class="card-body">
                                 <div class="row">
                                     <span id="nameOne">
-                                        <h5 class="card-title">Player 1</h5>
+                                        <h5 class="card-title">{{this.name}}</h5>
                                     </span>
-                                    <img id="userPicSelection" src="pics/monopoly_token_shoe.png">
+                                    <img id="userPicSelection" src={{this.icon}}>
                                 </div>
+
+                                {{/if}} {{/each}}
+
                                 <div class="row">
                                     <button id="stayButton" class="btn btn-outline-success btn-sm">Stay</button>
                                     <button id="hitButton" class="btn btn-outline-danger btn-sm">Hit Me</button>
@@ -131,4 +133,40 @@
         </div>
     </div>
     </div>
+
+
+
+
+    <script>
+        var time = 15;
+        var timeOut;
+
+        $(document).ready(function () {
+
+            waitForGame();
+            function waitForGame() {
+                time = setTimeout(3000);
+                $("#timeLeft").append(time);
+                clearTimeout(time);
+                $("#timeLeft").hide();
+            }
+
+            gameStart();
+            function gameStart() {
+
+                time = setInterval(countdown, 15000);
+                $("#timeLeft").append(time);
+
+
+
+            }
+
+        })
+
+//{{!! lobby and list of games with ids and each player that clicks on ready.
+//once all players status is ready the game can start players logged into page
+//select all from players where gameid = 1 
+
+
+    </script>
 </body>
