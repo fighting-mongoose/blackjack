@@ -3,31 +3,6 @@ console.log("Hello World!");
 
 $(document).ready(function () {
 
-    // var player = [];
-    // var $playerData = $("#playerData");
-
-    // getPlayer();
-
-
-    // function getPlayer() {
-    //     $.get("/api/player/:id", function (data) {
-    //         player = data;
-    //     })
-    // }
-
-    // function showPlayerInfo(player) {
-    //     var $newPlayerRow = $(
-    //         [
-    //             `<li class='list-group-item>
-    //             <span>
-    //             ${player.text}
-    //             </span>`
-    //         ].join("")
-    //     );
-
-    //     $playerData.append($newPlayerRow);
-    // }
-
 
     $("#signUpSubmit").on("click", function (event) {
         event.preventDefault();
@@ -45,10 +20,25 @@ $(document).ready(function () {
             type: "POST",
             data: newPlayer
         }).then(function () {
-            console.log("fuck!");
+
+
+
+
         });
 
     });
+
+
+
+    $("#playButton").on("click", function () {
+        event.preventDefault();
+
+        var newGame = {
+            count: 
+
+
+        }
+    })
 });
 
 
