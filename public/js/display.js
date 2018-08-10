@@ -34,10 +34,10 @@ $(document).ready(function () {
         event.preventDefault();
 
         var newGame = {
-            count: 
+            // count:
 
 
-        }
+        };
     })
 });
 
