@@ -30,7 +30,8 @@
    height: 550px;
    background-color: rgba(0, 0, 0, 0.685);
    margin: 50px auto;
-   width: 60rem;
+  width: 100%;
+  max-width: 960px;
    position: relative;
    max-width: 100%;
    border: solid black 5px;
@@ -96,7 +97,9 @@
 }
 
 #sideButtons {
-   margin-top: 400px;
+   position: absolute;
+   bottom: 2%;
+   right: 2%;
 
 }
 
@@ -109,4 +112,15 @@
 #cashOut {
    padding: 10px;
    border: solid black 2px;
+}
+.customCard {
+  width: 10%;
+  max-width: 264px;
+  margin: 0 .5%;
+}
+.customCard img {
+  width: 100%;
+}
+.forceWidth {
+  width: 80%;
 }

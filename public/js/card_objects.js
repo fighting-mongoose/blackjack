@@ -40,7 +40,7 @@ function TotalSumofHand() {
 }
 function dealCards(deck) {
     var playersHandTotal = 2;
-
+    var randomNumber = Math.floor(Math.random() * 51);
     var playersCards = [];
 
     for (var p = 0; p < playersHandTotal; p++) {
@@ -49,7 +49,7 @@ function dealCards(deck) {
 
     } console.log("players cards should be " + playersCards)
     console.log(randomCardGrabber);
-    $('body').append(playersCards[0].name + ' ' + playersCards[0].cardsSuite + " || " + playersCards[1].name + ' ' + playersCards[1].cardsSuite + "<br>")
+    $('body').append(playersCards[randomNumber].name + ' ' + playersCards[randomNumber].cardsSuite + " || " + playersCards[randomNumber].name + ' ' + playersCards[randomNumber].cardsSuite + "<br>")
 }
 // so passing out two cards per player. if player has cards then make it true.
 
@@ -114,7 +114,7 @@ GenerateCards();
 
 
 
-$(document).on("click", function () {
+$('#deal').on("click", function () {
     dealCards(deck);
     passOutCards();
 });
