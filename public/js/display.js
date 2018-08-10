@@ -21,7 +21,9 @@ $(document).ready(function () {
             data: newPlayer
         }).then(function () {
 
-            window.location.href = "/waitingRoom";
+            //get find all where 
+
+            window.location.href = "/index";
             console.log("successfully signed up!");
 
         });
@@ -32,12 +34,10 @@ $(document).ready(function () {
 
     $("#playButton").on("click", function () {
         event.preventDefault();
-
-        var newGame = {
-            count: 
+        window.location.href = "/index";
 
 
-        }
+
     })
 });
 
