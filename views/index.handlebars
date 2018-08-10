@@ -29,7 +29,7 @@
                         in the hand}} {{!-- {{!! {{!-- {{#each cards}} {{#if this.played}} --}}
                         <div class="row">
                             <div class="col-md-12">
-                                <h6 class="card-subtitle mb-2 text-muted">Player's Cards</h6>
+                                <h6 class="card-subtitle mb-2 text-muted">Your Cards</h6>
                             </div>
                         </div>
                         <div id="cardPlacement" class="row">
@@ -41,6 +41,13 @@
                             </div>
 
                         </div>
+
+                        <div class="row">
+                            {{#each gameData}}
+                            <pre>{{this.name}} {{this.icon}} {{this.total_credits}} </pre> {{/each}}
+                        </div>
+
+
                     </div>
                     <div id="sideButtons" class="col-md-2">
                         <div class="row">
@@ -56,37 +63,5 @@
             </div>
         </div>
     </div>
-    {{!--
-    <script>
-        var time = 15;
-        var timeOut;
 
-        $(document).ready(function () {
-
-            waitForGame();
-            function waitForGame() {
-                time = setTimeout(3000);
-                $("#timeLeft").append(time);
-                clearTimeout(time);
-                $("#timeLeft").hide();
-            }
-
-            gameStart();
-            function gameStart() {
-
-                time = setInterval(countdown, 15000);
-                $("#timeLeft").append(time);
-
-
-
-            }
-
-        })
-
-//!! lobby and list of games with ids and each player that clicks on ready.
-//once all players status is ready the game can start players logged into page
-//select all from players where gameid = 1 
-
-
-    </script> --}}
 </body>

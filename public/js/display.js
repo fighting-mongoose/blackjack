@@ -19,11 +19,15 @@ $(document).ready(function () {
         $.ajax('/api/players', {
             type: "POST",
             data: newPlayer
+
         }).then(function () {
+
 
 
             window.location.href = "/index";
             console.log("successfully signed up!");
+
+
 
         });
 
@@ -52,6 +56,7 @@ $(document).ready(function () {
             }
         });
     })
+
 
 
 
