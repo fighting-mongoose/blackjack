@@ -47,6 +47,23 @@ module.exports = function (app) {
             });
     };
 
+    //where should this function live so that it connects to display??
+    function cashOut(email) {
+
+        db.Player.update({
+            player_signed_in: false
+        }, {
+                where: {
+                    email: email
+                },
+
+            }).then(function (update) {
+                res.json(update);
+                res.render('login');
+            });
+
+
+    }
 
 
 }

@@ -103,10 +103,10 @@ function createDOMCard(cardObj) {
 GenerateCards();
 var deck = cardObjsArray;
 
-$(document).on("click", function () {
-    dealCards(deck);
-    passOutCards();
-});
+// $(document).on("click", function () {
+//     dealCards(deck);
+//     passOutCards();
+// });
 
 console.log("thi is algo the " + deck[1].name + " " + cardObjsArray[1].name + " " + cardObjsArray[1].cardsSuite);
 
