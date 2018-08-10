@@ -35,7 +35,7 @@ module.exports = function (app) {
             console.log(newPlayer);
             res.json(newPlayer);
         });
-    })
+    });
 
 
 
