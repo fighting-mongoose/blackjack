@@ -3,10 +3,10 @@ console.log("Hello World!");
 var newMoney;
 var playerFunds;
 
-playerFunds = parseInt($("#playerFunds"));
-newMoney = parseInt(playerFunds) + 10;
 
 $(document).ready(function () {
+
+
 
     //sign up form to create a new player
     $("#signUpSubmit").on("click", function (event) {
@@ -51,7 +51,7 @@ $(document).ready(function () {
             type: 'GET',
             data: JSON.stringify(user),
             contentType: 'application/json',
-            url: 'http://localhost:3000/api/players/signin',
+            url: '/api/players/signin',
 
         }).then(function (data) {
             if (data == true) {
@@ -64,26 +64,41 @@ $(document).ready(function () {
 
     $("#cashOut").on("click", function (event) {
         event.preventDefault();
-        cashOut();
+        $.ajax({
+            method: "GET",
+            url: "api/player/signout"
+        }).then(function (response) {
+            console.log(response);
+        })
 
     });
 
 
     //the function states that it is not a number
     $("#addMoney").on("click", function (event) {
+        playerFunds = document.getElementById("playerFunds").innerText;
+        console.log(playerFunds);
+
+        playerFunds = parseInt(playerFunds);
+
         event.preventDefault();
-        console.log("add $ function has been run");
+        playerFunds = playerFunds + 10;
+        newMoney = playerFunds;
+        $("#playerFunds").text(newMoney);
+        console.log(playerFunds);
+        console.log(newMoney);
+        alert("You added $10");
 
-        $("#playerFunds").append("$" + newMoney);
+    });
 
-    })
+    $("#cashOut").on("click", function (event) {
+
+        event.preventDefault();
+        var playerIdSet = $(this).data("player-id");
+        playerUpDatter(playerIdSet, false);
+    });
 
 });
-
-
-
-
-
 
 
 

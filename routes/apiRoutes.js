@@ -35,17 +35,51 @@ module.exports = function (app) {
         })
     })
 
-    function updatePlayer(email) {
-        db.Player.update({
+    // function updatePlayer(email) {
+    //     db.Player.update({
+    //         player_signed_in: true
+    //     }, {
+    //             where: {
+    //                 email: email
+    //             }
+    //         }).then(function (update) {
+    //             res.json(update);
+    //         });
+    // };
+
+    app.get("/api/players/:id", function (req, res) {
+        var id = req.params.id;
+        db.Player.findOne({
             player_signed_in: true
         }, {
                 where: {
-                    email: email
+                    id: id
                 }
+
             }).then(function (update) {
                 res.json(update);
             });
-    };
+    });
+
+    app.put("/api/players/logout/:id", function (req, res) {
+        var id = req.params.id;
+        var signedInStat = req.body.signedInStat;
+        db.Player.update({
+            player_signed_in: signedInStat
+        }, {
+                where: {
+                    id: id
+                }
+            }).then(function () {
+                res.render("welcome");
+            })
+    })
+
+    //connect to the database
+    //select the player that is currently displayed
+    //allow them to push the cash out button and change their status to signed out in database
+    //once they are signed out I want to send them to the welcome page 
+
 
     //where should this function live so that it connects to display??
     function cashOut(email) {
