@@ -9,9 +9,9 @@ module.exports = function (app) {
     });
 
     app.get('/index', function (req, res) {
-
+        console.log(req.body.user);
         // res.render('index')
-        db.Player.findAll({
+        db.Player.findOne({
             where: {
                 player_signed_in: true
             },
