@@ -7,7 +7,16 @@ module.exports = function (app) {
             console.log(newPlayer);
             res.json(newPlayer);
         });
+    });
+
+
+    app.get("index/player/game", function (req, res) {
+
+        res.render('index', { gameData });
     })
+
+    // // update user where signed in is true and change signed in status to false when signed out
+
 
     app.get("/api/players/signin", function (req, res) {
         //grab body data to run a query. 
@@ -37,6 +46,24 @@ module.exports = function (app) {
                 res.json(update);
             });
     };
+
+    //where should this function live so that it connects to display??
+    function cashOut(email) {
+
+        db.Player.update({
+            player_signed_in: false
+        }, {
+                where: {
+                    email: email
+                },
+
+            }).then(function (update) {
+                res.json(update);
+                res.render('login');
+            });
+
+
+    }
 
 
 }

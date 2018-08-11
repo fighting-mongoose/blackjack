@@ -1,5 +1,10 @@
 //This is for after the player logs in. 
 console.log("Hello World!");
+var newMoney;
+var playerFunds;
+
+playerFunds = parseInt($("#playerFunds"));
+newMoney = parseInt(playerFunds) + 10;
 
 $(document).ready(function () {
 
@@ -19,10 +24,15 @@ $(document).ready(function () {
         $.ajax('/api/players', {
             type: "POST",
             data: newPlayer
+
         }).then(function () {
+
+
 
             window.location.href = "/index";
             console.log("successfully signed up!");
+
+
 
         });
 
@@ -31,6 +41,7 @@ $(document).ready(function () {
     //log in for returning players
     $("#signIn").on("click", function (event) {
         event.preventDefault();
+
         var user = {
             email: $("#inputEmail4").val(),
             password: $("#inputPassword4").val()
@@ -51,9 +62,27 @@ $(document).ready(function () {
         });
     })
 
+    $("#cashOut").on("click", function (event) {
+        event.preventDefault();
+        cashOut();
 
+    });
+
+
+    //the function states that it is not a number
+    $("#addMoney").on("click", function (event) {
+        event.preventDefault();
+        console.log("add $ function has been run");
+
+        $("#playerFunds").append("$" + newMoney);
+
+    })
 
 });
+
+
+
+
 
 
 
