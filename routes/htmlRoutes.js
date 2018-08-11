@@ -8,12 +8,12 @@ module.exports = function (app) {
 
     });
 
-    app.get('/index', function (req, res) {
+    app.get('/index/:id', function (req, res) {
 
         // res.render('index')
-        db.Player.findAll({
+        db.Player.findOne({
             where: {
-                player_signed_in: true
+                id: req.params.id
             },
         }).then(function (gameData) {
             console.log(gameData);
