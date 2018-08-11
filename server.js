@@ -10,7 +10,7 @@ var app = express();
 var http = require('http').Server(app);
 var io = require("socket.io")(http);
 
-var deck = require(__dirname + "/cardObject.js");
+// var deck = require(__dirname + "../js/cardobject.js");
 var discardPile = [];
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static("public"));

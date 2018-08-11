@@ -2,7 +2,7 @@
 console.log("Hello World!");
 
 $(document).ready(function () {
-
+    $("#showHit_and_stayBtns").hide();
 
     $("#signUpSubmit").on("click", function (event) {
         event.preventDefault();
@@ -39,6 +39,18 @@ $(document).ready(function () {
 
 
     })
+    $("#dealBtn").on("click", function () {
+        // document.getElementById("#dealBtn").disabled = true;
+
+        dealer(deck);
+        player(deck);
+        $("#dealBtn").hide();
+        $("#showHit_and_stayBtns").show();
+    })
+    $("#hitBtn").on("click", function () {
+        console.log("hit clicked ")
+        hitMe();
+    });
 });
 
 
