@@ -3,10 +3,8 @@ console.log("Hello World!");
 var newMoney;
 var playerFunds;
 
-playerFunds = parseInt($("#playerFunds"));
-newMoney = parseInt(playerFunds) + 10;
-
 $(document).ready(function () {
+    $("#showHit_and_stayBtns").hide();
 
     //sign up form to create a new player
     $("#signUpSubmit").on("click", function (event) {
@@ -80,7 +78,18 @@ $(document).ready(function () {
         $("#playerFunds").append("$" + newMoney);
 
     })
+    $("#dealBtn").on("click", function () {
+        // document.getElementById("#dealBtn").disabled = true;
 
+        dealer(deck);
+        player(deck);
+        $("#dealBtn").hide();
+        $("#showHit_and_stayBtns").show();
+    })
+    $("#hitBtn").on("click", function () {
+        console.log("hit clicked ")
+        hitMe();
+    });
 });
 
 
