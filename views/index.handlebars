@@ -5,69 +5,66 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-
-
                 <div id="mainCard" class="card">
                     <div class="card-body">
-                        <h6 class="card-subtitle mb-2 text-muted">Dealer's Cards</h6>
-                        {{!!--dynamically create cards based on how many have been played during the hand}}
-                        <div id="cardPlacement" class="row">
-                            {{!-- {{#each cards}} {{#if this.played}} --}}
-                            <div id="dealerCardOne" class="customCard">
 
-                                <img src="pics/sa.png">
 
-                            </div>
-                            <div id="dealerCardTwo" class="customCard">
-
-                                <img src="pics/blank.png">
-
-                            </div>
-
-                        </div>
-                        <br> {{!-- {{/each}} {{/if}} --}} {{!! dynamically create players cards by how many have been played
-                        in the hand}} {{!-- {{!! {{!-- {{#each cards}} {{#if this.played}} --}}
                         <div class="row">
                             <div class="col-md-12">
-                                <h6 class="card-subtitle mb-2 text-muted">Your Cards</h6>
+                                <h6 class="card-subtitle mb-2 text-muted">Dealer's Cards</h6>
+                                {{!!--dynamically create cards based on how many have been played during the hand}}
+
+                                <div id="dealerPlacement" class="row">
+
+                                </div>
                             </div>
                         </div>
-                        <div id="cardPlacement" class="row">
-                            <div id="playersCard" class="customCard">
-                                <img src="pics/sa.png">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h6 class="card-subtitle mb-2 text-muted">Player's Cards</h6>
+
+                                <div id="cardPlacement" class="row">
+
+                                </div>
                             </div>
-                            <div id="playersCard" class="customCard">
-                                <img src="pics/blank.png">
-                            </div>
-
                         </div>
-
-                        <br>
-
-                        <div id="PlayerInfo" class="row">
-                            {{#each gameData}}
-                            <h3>{{this.name}}</h3>
-                            <img id="icon" src={{this.icon}}>
-                            <h3>$
-                                <span id="playerFunds">{{this.total_credits}}</span>
-                            </h3>{ {{/each}}
-                        </div>
-
 
                     </div>
-                    <div id="sideButtons" class="col-md-2">
-                        <div class="row">
-                            <button id="addMoney" class="btn btn-success forceWidth"> Add $</button>
-                        </div>
-                        <div class="row">
-                            <button id="cashOut" class="btn btn-danger forceWidth">Cash Out</button>
-                        </div>
+
+                    <br>
+
+                    <div id="PlayerInfo" class="row">
+                        {{#each gameData}}
+                        <h3>{{this.name}}</h3>
+                        <img id="icon" src={{this.icon}}>
+                        <h3>$
+                            <span id="playerFunds">{{this.total_credits}}</span>
+                        </h3>{ {{/each}}
+                    </div>
+
+
+                </div>
+                <div id="sideButtons" class="col-md-2">
+                    <div id="hideDealerBtn" class="row">
+                        <button id="dealBtn" type="button" class="btn btn-danger forceWidth" style="margin-bottom: 10px;">DEAL</button>
+
+                    </div>
+                    <div id="showHit_and_stayBtns" class="row">
+                        <button id="hitBtn" type="button" class="btn btn-warning forceWidth" style="margin-bottom: 10px;">HIT</button>
+                        <button id="stayBtn" type="button" class="btn btn-warning forceWidth" style="margin-bottom: 10px;">STAY</button>
+                    </div>
+                    <div class="row">
+                        <button id="addMoney" class="btn btn-success forceWidth"> Add $</button>
+                    </div>
+                    <div class="row">
+                        <button id="cashOut" class="btn btn-danger forceWidth">Cash Out</button>
                     </div>
                 </div>
-
-
             </div>
+
+
         </div>
+    </div>
     </div>
 
 </body>

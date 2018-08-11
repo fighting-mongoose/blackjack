@@ -109,17 +109,17 @@
    border: solid black 2px;
 }
 
-#cashOut {
+#cashOut, #dealBtn {
    padding: 10px;
    border: solid black 2px;
 }
-.customCard {
+
+ 
+
+#cardImg {
   width: 10%;
   max-width: 264px;
   margin: 0 .5%;
-}
-.customCard img {
-  width: 100%;
 }
 .forceWidth {
   width: 80%;
