@@ -10,10 +10,10 @@ module.exports = function (app) {
     });
 
     //this is to populate players data in a game
-    app.get("api/player/game", function (req, res) {
+    // app.get("/api/player/game", function (req, res) {
 
-        res.render('index', { gameData });
-    })
+    //     res.render('index', { gameData });
+    // })
 
     // // update user where signed in is true and change signed in status to false when signed out
 
@@ -29,31 +29,33 @@ module.exports = function (app) {
                 email: user.email
                 // password: req.query.password
             }
-        }).then(function (user) {
+        }).then(function (player) {
             console.log("callback from findOne");
-            if (user != "null") {
+            if (player != "null") {
 
-                updatePlayer(user.email, res, req);
+                updatePlayer(player, res, req);
+                console.log("spicy" + player.id);
 
             } else {
-                res.send(user);
+                res.send(player);
             }
         })
     })
 
-    function updatePlayer(email, res, req) {
+    function updatePlayer(playerHere, res, req) {
         db.Player.update({
             player_signed_in: true
         }, {
                 where: {
-                    email: email
+                    email: playerHere.email
                 }
             }).then(function (update) {
                 // res.json(update);
                 console.log("callback from updatePlayer")
                 // from user take id
                 console.log("update user ", update)
-                res.json(update)
+                console.log("user id is still" + update.id);
+                res.json(playerHere);
             });
     };
 

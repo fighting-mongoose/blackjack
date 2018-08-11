@@ -16,9 +16,10 @@ module.exports = function (app) {
                 id: req.params.id
             },
         }).then(function (gameData) {
-            console.log(gameData);
+            console.log(gameData.dataValues);
+            gameData2 = gameData.dataValues;
             // res.json(gameData);
-            res.render('index', { gameData });
+            res.render('index', {gameData2});
         });
 
 

@@ -58,7 +58,7 @@ $(document).ready(function () {
                 console.log("ajax user callback");
                 if (data != null) {
                     window.location.href = "/index/" + data.id;
-                    console.log("data = " + data);
+                    console.log("data = " + data.id);
                 } else {
                     alert("You are not a player!")
                 }
