@@ -8,17 +8,23 @@ module.exports = function (app) {
 
     });
 
+<<<<<<< HEAD
     app.get('/index', function (req, res) {
         console.log(req.body.user);
+=======
+    app.get('/index/:id', function (req, res) {
+
+>>>>>>> d0e29d6ee8b7ece2952e9b14801fb2e466814ea2
         // res.render('index')
         db.Player.findOne({
             where: {
-                player_signed_in: true
+                id: req.params.id
             },
         }).then(function (gameData) {
-            console.log(gameData);
+            console.log(gameData.dataValues);
+            gameData2 = gameData.dataValues;
             // res.json(gameData);
-            res.render('index', { gameData });
+            res.render('index', {gameData2});
         });
 
 
