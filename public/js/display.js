@@ -43,23 +43,26 @@ $(document).ready(function () {
         event.preventDefault();
 
         var user = {
-            email: $("#inputEmail4").val(),
-            password: $("#inputPassword4").val()
+            email: $("#inputEmail4").val().trim(),
+            password: $("#inputPassword4").val().trim()
         };
 
-        $.ajax({
-            type: 'GET',
-            data: JSON.stringify(user),
-            contentType: 'application/json',
-            url: 'http://localhost:3000/api/players/signin',
+        $.post(
+            // type: 'GET',
+            '/api/players/signin',
+            user
 
-        }).then(function (data) {
-            if (data == true) {
-                window.location.href = "/index";
-            } else {
-                alert("You are not a player!")
-            }
-        });
+
+        )
+            .then(function (data) {
+                console.log("ajax user callback");
+                if (data != null) {
+                    window.location.href = "/index/" + data.id;
+                    console.log("data = " + data.id);
+                } else {
+                    alert("You are not a player!")
+                }
+            });
     })
 
     $("#cashOut").on("click", function (event) {
