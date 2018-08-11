@@ -29,61 +29,42 @@
                             </div>
                         </div>
 
+                    </div>
+
+                    <br>
+
+                    <div id="PlayerInfo" class="row">
+                        {{#each gameData}}
+                        <h3>{{this.name}}</h3>
+                        <img id="icon" src={{this.icon}}>
+                        <h3>$
+                            <span id="playerFunds">{{this.total_credits}}</span>
+                        </h3>{ {{/each}}
+                    </div>
+
+
+                </div>
+                <div id="sideButtons" class="col-md-2">
+                    <div id="hideDealerBtn" class="row">
+                        <button id="dealBtn" type="button" class="btn btn-danger forceWidth" style="margin-bottom: 10px;">DEAL</button>
 
                     </div>
-                    <div id="sideButtons" class="col-md-2">
-                        <div id="hideDealerBtn" class="row">
-                            <button id="dealBtn" type="button" class="btn btn-danger forceWidth" style="margin-bottom: 10px;">DEAL</button>
-
-                        </div>
-                        <div id="showHit_and_stayBtns" class="row">
-                            <button id="hitBtn" type="button" class="btn btn-warning forceWidth" style="margin-bottom: 10px;">HIT</button>
-                            <button id="stayBtn" type="button" class="btn btn-warning forceWidth" style="margin-bottom: 10px;">STAY</button>
-                        </div>
-                        <div class="row">
-                            <button id="addMoney" class="btn btn-success forceWidth"> Add $</button>
-                        </div>
-                        <div class="row">
-                            <button id="cashOut" class="btn btn-danger forceWidth">Cash Out</button>
-                        </div>
+                    <div id="showHit_and_stayBtns" class="row">
+                        <button id="hitBtn" type="button" class="btn btn-warning forceWidth" style="margin-bottom: 10px;">HIT</button>
+                        <button id="stayBtn" type="button" class="btn btn-warning forceWidth" style="margin-bottom: 10px;">STAY</button>
+                    </div>
+                    <div class="row">
+                        <button id="addMoney" class="btn btn-success forceWidth"> Add $</button>
+                    </div>
+                    <div class="row">
+                        <button id="cashOut" class="btn btn-danger forceWidth">Cash Out</button>
                     </div>
                 </div>
-
-
             </div>
+
+
         </div>
     </div>
-    {{!--
-    <script>
-        var time = 15;
-        var timeOut;
+    </div>
 
-        $(document).ready(function () {
-
-            waitForGame();
-            function waitForGame() {
-                time = setTimeout(3000);
-                $("#timeLeft").append(time);
-                clearTimeout(time);
-                $("#timeLeft").hide();
-            }
-
-            gameStart();
-            function gameStart() {
-
-                time = setInterval(countdown, 15000);
-                $("#timeLeft").append(time);
-
-
-
-            }
-
-        })
-
-//!! lobby and list of games with ids and each player that clicks on ready.
-//once all players status is ready the game can start players logged into page
-//select all from players where gameid = 1 
-
-
-    </script> --}}
 </body>
