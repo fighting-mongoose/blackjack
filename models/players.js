@@ -1,8 +1,26 @@
+var bcrypt = require("bcrypt-nodejs");
+
 module.exports = function (sequelize, DataTypes) {
     var Player = sequelize.define("Player", {
         name: {
             type: DataTypes.STRING,
             allowNull: false
+        },
+        email: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            unique: true,
+            validate: {
+                isEmail: true
+            }
+        },
+        password: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        icon: {
+            type: DataTypes.STRING,
+            allowNull: true
         },
         total_credits: {
             type: DataTypes.FLOAT,
@@ -10,7 +28,7 @@ module.exports = function (sequelize, DataTypes) {
         },
         game: {
             type: DataTypes.INTEGER,
-            allowNull: false
+            allowNull: true
         },
         waitingRoom: {
             type: DataTypes.BOOLEAN,
@@ -22,12 +40,33 @@ module.exports = function (sequelize, DataTypes) {
         },
         bet: {
             type: DataTypes.FLOAT,
-            allowNull: false
-        },
-        hand_split: {
-            type: DataTypes.ARRAY(DataTypes.TEXT),
-            allowNull: false
-        },
+            allowNull: true
+        }
+        // hand_split: {
+        //     type: DataTypes.ARRAY(DataTypes.TEXT),
+        //     allowNull: false
+        // },
+
+    }, {
+            freezeTableName: true,
+        });
+
+    Player.prototype.validPassword = function (password) {
+        return bcrypt.compareSync(password, this.password);
+    };
+    Player.hook("beforeCreate", function (user) {
+        user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(8), null);
     });
+
+
+    Player.associate = function (models) {
+        // We're saying that a Player should belong to an Game
+        // A Player can't be created without an Game due to the foreign key constraint
+        Player.belongsTo(models.Game, {
+            foreignKey: {
+                allowNull: false
+            }
+        });
+    };
     return Player;
-}
+};

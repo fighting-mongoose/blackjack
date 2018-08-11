@@ -30,7 +30,8 @@
    height: 550px;
    background-color: rgba(0, 0, 0, 0.685);
    margin: 50px auto;
-   width: 60rem;
+  width: 100%;
+  max-width: 960px;
    position: relative;
    max-width: 100%;
    border: solid black 5px;
@@ -74,9 +75,9 @@
 }
 
 .right-align {
-   width: 12rem;
    margin: 0 0 0 auto;
 }
+
 #pFour {
    margin: 0 0 0 auto;
    height: auto;
@@ -96,7 +97,9 @@
 }
 
 #sideButtons {
-   margin-top: 400px;
+   position: absolute;
+   bottom: 2%;
+   right: 2%;
 
 }
 
@@ -106,7 +109,18 @@
    border: solid black 2px;
 }
 
-#cashOut {
+#cashOut, #dealBtn {
    padding: 10px;
    border: solid black 2px;
+}
+
+ 
+
+#cardImg {
+  width: 10%;
+  max-width: 264px;
+  margin: 0 .5%;
+}
+.forceWidth {
+  width: 80%;
 }

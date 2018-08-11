@@ -1,32 +1,57 @@
 //This is for after the player logs in. 
+console.log("Hello World!");
 
 $(document).ready(function () {
+    $("#showHit_and_stayBtns").hide();
 
-    var player = [];
-    var $playerData = $("#playerData");
+    $("#signUpSubmit").on("click", function (event) {
+        event.preventDefault();
+        console.log("I clicked");
+        var newPlayer = {
+            name: $("#signUpName").val().trim(),
+            email: $("#inputEmail4").val().trim(),
+            password: $("#inputPassword4").val().trim(),
+            icon: $("input[name=blackjackImg]:checked").val(),
+            total_credits: parseFloat($("#moneyAmount").val())
+        }
+        console.log(newPlayer);
 
-    getPlayer();
+        $.ajax('/api/players', {
+            type: "POST",
+            data: newPlayer
+        }).then(function () {
+
+            //get find all where 
+
+            window.location.href = "/index";
+            console.log("successfully signed up!");
+
+        });
+
+    });
 
 
-    function getPlayer() {
-        $.get("/api/player/:id", function (data) {
-            player = data;
-        })
-    }
 
-    function showPlayerInfo(player) {
-        var $newPlayerRow = $(
-            [
-                `<li class='list-group-item>
-                <span>
-                ${player.text}
-                </span>`
-            ].join("")
-        );
+    $("#playButton").on("click", function () {
+        event.preventDefault();
+        window.location.href = "/index";
 
-        $playerData.append($newPlayerRow);
-    }
-})
+
+
+    })
+    $("#dealBtn").on("click", function () {
+        // document.getElementById("#dealBtn").disabled = true;
+
+        dealer(deck);
+        player(deck);
+        $("#dealBtn").hide();
+        $("#showHit_and_stayBtns").show();
+    })
+    $("#hitBtn").on("click", function () {
+        console.log("hit clicked ")
+        hitMe();
+    });
+});
 
 
 

@@ -5,134 +5,85 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <div class='timer' data-seconds-left="15">
-                    <div class="jst-seconds">
-                        <strong>15</strong>
-                    </div>
-                    <div class="jst-clearDiv"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-10">
-            <div id="mainCard" class="card" style="width: 60rem;">
-                <div class="row">
-                    <div id="players" class="col-md-4">
-                        <div id="pOne" class="card" style="width: 12rem;">
-                            <div class="card-body">
-                                <div class="row">
-                                    <span id="nameOne">
-                                        <h5 class="card-title">Player 1</h5>
-                                    </span>
-                                    <img id="userPicSelection" src="pics/monopoly_token_shoe.png">
-                                </div>
-                                <div class="row">
-                                    <button id="stayButton" class="btn btn-outline-success btn-sm">Stay</button>
-                                    <button id="hitButton" class="btn btn-outline-danger btn-sm">Hit Me</button>
-                                    <span id="moneyLeft">$</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
+                <div id="mainCard" class="card">
+                    <div class="card-body">
+
+
                         <div class="row">
-                            <div id="pOneCards"></div>
-                            <div id="pTwoCards"></div>
-                        </div>
-                    </div>
-                    <div id="players" class="col-md-4">
-                        <div id="pTwo" class="card" style="width: 12rem;">
-                            <div class="card-body">
-                                <div class="row">
-                                    <span id="nameTwo">
-                                        <h5 class="card-title">Player 2</h5>
-                                    </span>
-                                    <img id="userPicSelection" src="pics/monopoly_token_shoe.png">
-                                </div>
-                                <div class="row">
-                                    <button id="stayButton" class="btn btn-outline-success btn-sm">Stay</button>
-                                    <button id="hitButton" class="btn btn-outline-danger btn-sm">Hit Me</button>
-                                    <span id="moneyLeft">$</span>
+                            <div class="col-md-12">
+                                <h6 class="card-subtitle mb-2 text-muted">Dealer's Cards</h6>
+                                {{!!--dynamically create cards based on how many have been played during the hand}}
+
+                                <div id="dealerPlacement" class="row">
+
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div id="players" class="col-md-12" style="position:relative;">
-                        <div id="dealer" class="card" style="width: 10rem;">
-                            <div class="card-body">
-                                <div class="row">
-                                    <h5 class="card-title">Dealer</h5>
-                                    <img id="userPicSelection" src="/pics/dealer2.jpg" alt="Dealer Icon" />
-                                </div>
-                            </div>
-                        </div>
-                        <div id="dealerCards"></div>
-                    </div>
-                </div>
-                <div class="row bottom-row">
-                    <div id="players" class="col-md-4">
-                        <div id="pThree" class="card" style="width: 12rem;">
-                            <div class="card-body">
-                                <div class="row">
-                                    <span id="nameThree">
-                                        <h5 class="card-title">Player 3</h5>
-                                    </span>
-                                    <img id="userPicSelection" src="pics/monopoly_token_shoe.png">
-                                </div>
-                                <div class="row">
-                                    <button id="stayButton" class="btn btn-outline-success btn-sm">Stay</button>
-                                    <button id="hitButton" class="btn btn-outline-danger btn-sm">Hit Me</button>
-                                    <span id="moneyLeft">$</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
                         <div class="row">
-                            <div id="pThreeCards"></div>
-                            <div id="pFourCards"></div>
-                        </div>
-                    </div>
-                    <div id="players" class="col-md-4 right-align">
-                        <div id="pFour" class="card" style="width: 12rem;">
-                            <div class="card-body">
-                                <div class="row">
-                                    <span id="nameFour">
-                                        <h5 class="card-title">Player 4</h5>
-                                    </span>
-                                    <img id="userPicSelection" src="pics/monopoly_token_shoe.png">
-                                </div>
-                                <div class="row">
-                                    <button id="stayButton" class="btn btn-outline-success btn-sm">Stay</button>
-                                    <button id="hitButton" class="btn btn-outline-danger btn-sm">Hit Me</button>
-                                    <span id="moneyLeft">$</span>
+                            <div class="col-md-12">
+                                <h6 class="card-subtitle mb-2 text-muted">Player's Cards</h6>
+
+                                <div id="cardPlacement" class="row">
+
                                 </div>
                             </div>
                         </div>
+
+
+                    </div>
+                    <div id="sideButtons" class="col-md-2">
+                        <div id="hideDealerBtn" class="row">
+                            <button id="dealBtn" type="button" class="btn btn-danger forceWidth" style="margin-bottom: 10px;">DEAL</button>
+
+                        </div>
+                        <div id="showHit_and_stayBtns" class="row">
+                            <button id="hitBtn" type="button" class="btn btn-warning forceWidth" style="margin-bottom: 10px;">HIT</button>
+                            <button id="stayBtn" type="button" class="btn btn-warning forceWidth" style="margin-bottom: 10px;">STAY</button>
+                        </div>
+                        <div class="row">
+                            <button id="addMoney" class="btn btn-success forceWidth"> Add $</button>
+                        </div>
+                        <div class="row">
+                            <button id="cashOut" class="btn btn-danger forceWidth">Cash Out</button>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div id="sideButtons" class="col-md-2">
-            <div class="row">
-                <button id="addMoney" class="btn btn-success">Add Funds $</button>
-            </div>
-            <div class="row">
-                <button id="cashOut" class="btn btn-danger">Cash Out</button>
+
+
             </div>
         </div>
     </div>
-    </div>
+    {{!--
     <script>
-        "use strict";
-        let $ = require("jquery");
-        require("jquery-simple-timer")($); // passing jQuery as argument
-        $(function () {
-            $('.timer').startTimer();
-        });
-        { { !--$('.timer').startTimer(); --} }
-    </script>
+        var time = 15;
+        var timeOut;
+
+        $(document).ready(function () {
+
+            waitForGame();
+            function waitForGame() {
+                time = setTimeout(3000);
+                $("#timeLeft").append(time);
+                clearTimeout(time);
+                $("#timeLeft").hide();
+            }
+
+            gameStart();
+            function gameStart() {
+
+                time = setInterval(countdown, 15000);
+                $("#timeLeft").append(time);
+
+
+
+            }
+
+        })
+
+//!! lobby and list of games with ids and each player that clicks on ready.
+//once all players status is ready the game can start players logged into page
+//select all from players where gameid = 1 
+
+
+    </script> --}}
 </body>
