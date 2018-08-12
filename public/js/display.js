@@ -25,11 +25,12 @@ $(document).ready(function () {
             type: "POST",
             data: newPlayer
 
-        }).then(function () {
+        }).then(function (info) {
 
 
 
-            window.location.href = "/index";
+            window.location.href = "/index/" + info.id;
+            console.log(info);
             console.log("successfully signed up!");
 
 

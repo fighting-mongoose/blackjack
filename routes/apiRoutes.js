@@ -5,7 +5,17 @@ module.exports = function (app) {
     app.post("/api/players", function (req, res) {
         db.Player.create(req.body).then(function (newPlayer) {
             console.log(newPlayer);
-            res.json(newPlayer);
+            db.Player.findOne({
+                where: {
+                    email: newPlayer.email
+                    // password: req.query.password
+                }
+            }).then(function (player) {
+
+                console.log("spicy" + player.id);
+
+                res.send(player);
+            })
         });
     });
 
