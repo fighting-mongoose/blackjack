@@ -23,11 +23,12 @@ $(document).ready(function () {
             type: "POST",
             data: newPlayer
 
-        }).then(function () {
+        }).then(function (info) {
 
 
 
-            window.location.href = "/index";
+            window.location.href = "/index/" + info.id;
+            console.log(info);
             console.log("successfully signed up!");
 
 
@@ -72,10 +73,20 @@ $(document).ready(function () {
 
     //the function states that it is not a number
     $("#addMoney").on("click", function (event) {
-        event.preventDefault();
+        playerFunds = document.getElementById("playerFunds").innerText;
+        console.log(playerFunds);
+
+        playerFunds = parseInt(playerFunds);
+
         console.log("add $ function has been run");
 
-        $("#playerFunds").append("$" + newMoney);
+        event.preventDefault();
+        playerFunds = playerFunds + 10;
+        newMoney = playerFunds;
+        $("#playerFunds").text(newMoney);
+        console.log(playerFunds);
+        console.log(newMoney);
+        alert("You added $10");
 
     })
     $("#dealBtn").on("click", function () {
