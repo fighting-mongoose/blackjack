@@ -2,10 +2,6 @@
    background-color: black;
 }
 
-/* .timer {
-   font-size: 25px;
-   color: black;
-} */
 #main {
    background-image: url('/pics/12282014BlackjackTable.jpg');
    background-repeat: no-repeat center;
@@ -30,42 +26,12 @@
    height: 550px;
    background-color: rgba(0, 0, 0, 0.685);
    margin: 50px auto;
-  width: 100%;
-  max-width: 960px;
+   width: 100%;
+   max-width: 960px;
    position: relative;
    max-width: 100%;
    border: solid black 5px;
-
-}
-
-.bottom-row {
-   position: absolute;
-   bottom: 0;
-   width: 103.2%;
-}
-
-/* #pOne {
-   height: auto;
-   border: solid black 2px;
-   background-color: whitesmoke;
-} */
-
-/* #pTwo {
-  position: relative;
-  margin: 0 0 0 auto;
-   height: auto;
-   border: solid black 2px;
-   background-color: whitesmoke;
-} */
-
-#dealer {
-   position: relative;
-   top: 140%;
-   left: 40%;
-   z-index: 11;
-   border: solid black 2px;
-   background-color: whitesmoke;
- 
+   color:whitesmoke;
 }
 
 #betQuestion {
@@ -77,24 +43,12 @@
   margin: 10px;
 }
 
-
-/* .right-align {
-   margin: 0 0 0 auto;
-} */
-
-/* #pFour {
-   margin: 0 0 0 auto;
-   height: auto;
-   border: solid black 2px;
-   background-color: whitesmoke;
-} */
-
-#userPicSelection {
+/* #userPicSelection {
    height: 40px;
    width: 40px;
    margin-left: 10px;
  
-}
+} */
 
 #moneyLeft {
    margin-left: 5px;
@@ -113,24 +67,31 @@
    border: solid black 2px;
 }
 
-#cashOut, #dealBtn {
+#cashOut, #dealBtn, #betFive, #betTen, #betAll {
    padding: 10px;
    border: solid black 2px;
 }
 
- 
+#betFive, #betTen, #betAll {
+  margin: 5px;
+}
+#betFive:hover, #betTen:hover, #betAll:hover {
+  background-color: black;
+}
+
 
 #cardImg {
   width: 10%;
+  height: 10%;
   max-width: 264px;
-  margin: 0 .5%;
+  margin: 0.5%;
 }
 .forceWidth {
   width: 80%;
 }
 
 #PlayerInfo {
-  color: white;
+  color: whitesmoke;
 
 }
 

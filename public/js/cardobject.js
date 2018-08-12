@@ -1,6 +1,7 @@
 var suites = ["spades", "hearts", "clubs", "diamonds"];
 var cards = ["2", "3", "4", '5', '6', '7', '8', '9', '10', 'jack', 'queen', 'king', 'ace'];
-
+var playersCards = [];
+var dealersHand = [];
 
 // EMPTY ARRAY FOR THE DECK TO GET SHUFFLED INTO
 var deck = [];
@@ -29,17 +30,15 @@ function shuffleDeck() {
 
     return deck;
 }
+
 function Card(name, suite) {
     this.name = name;
     // this.cardsImage = image;
     this.cardsSuite = suite;
     this.value = (this.name == "jack" || this.name == "queen" || this.name == "king") ? 10 : (this.name == "ace") ? [1, 11] : parseInt(this.name);
 }
-var playersCards = [];
+
 function player(deck) {
-
-
-
 
     for (var p = 0; p < 2; p++) {
         var randomCardGrabber = Math.floor(Math.random() * 51);
@@ -54,12 +53,9 @@ function player(deck) {
 
 }
 
-var dealersHand = [];
+
 
 function dealer(deck) {
-
-
-
 
     for (var p = 0; p < 2; p++) {
         var randomCardGrabber = Math.floor(Math.random() * 51);
@@ -68,8 +64,6 @@ function dealer(deck) {
         deck.splice(randomCardGrabber, 1);
         console.log(dealersHand[p])
     }
-
-
 
     var dealerPlacement = $('#dealerPlacement');
 

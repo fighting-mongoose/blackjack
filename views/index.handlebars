@@ -1,72 +1,74 @@
 <body id="main">
     <nav class="navbar navbar-light bg-light">
-        <a id="navBarTitle" class="navbar-brand" href="#">Blackjack</a>
+        <a id="navBarTitle" class="navbar-brand" href="#">Blackjack-Fighting Mongoose</a>
     </nav>
+
     <div class="container">
         <div class="row">
             <div class="col-md-12">
 
-                <div id="bets" class="row">
-                    <h2 id="betQuestion">How much you wanna bet?</h2>
-                    <button id="betFive" class="btn btn-danger forceWidth">$5</button>
-                    <button id="betTen" class="btn btn-danger forceWidth">$10</button>
-                    <button id="betAll" class="btn btn-danger forceWidth">All $</button>
-
+                <div id="bets" class="col-md-12">
+                    <div class="row">
+                        <h2 id="betQuestion">How much you wanna bet?</h2>
+                    </div>
+                    <div id="betButtons" class="row">
+                        <button id="betFive" class="btn btn-danger">$5</button>
+                        <button id="betTen" class="btn btn-danger">$10</button>
+                        <button id="betAll" class="btn btn-danger">All $</button>
+                    </div>
                 </div>
 
                 <div id="mainCard" class="card">
                     <div class="card-body">
 
                         <div class="row">
-                            <div class="col-md-12">
-                                <h6 class="card-subtitle mb-2 text-muted">Dealer's Cards</h6>
-                                <h1 id="total"></h1>
+                            <div class="col-md-10">
 
-                                <div id="dealerPlacement" class="row">
+                                <div class="row">
+                                    <h6 class="card-subtitle mb-2 text-muted">Dealer's Cards</h6>
+                                    <h3 id="total"></h3>
+                                </div>
+
+                                <div id="dealerPlacement" class="row"></div>
+
+                                <br>
+
+                                <div class="row">
+                                    <h6 class="card-subtitle mb-2 text-muted">Player's Cards</h6>
+                                    <h3 id="total"></h3>
 
                                 </div>
-                            </div>
-                        </div>
 
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h6 class="card-subtitle mb-2 text-muted">Player's Cards</h6>
+                                <div id="cardPlacement" class="row"></div>
 
-                                <div id="cardPlacement" class="row">
+                                <br>
 
+                                <div id="PlayerInfo" class="row">
+                                    <h3>{{gameData2.name}}</h3>
+                                    <img id="icon" src={{gameData2.icon}}>
+                                    <h3>$
+                                        <span id="playerFunds">{{gameData2.total_credits}}</span>
+                                    </h3>
                                 </div>
                             </div>
-                        </div>
 
+                            <div id="sideButtons" class="col-md-2">
+                                <div id="hideDealerBtn" class="row">
+                                    <button id="dealBtn" type="button" class="btn btn-danger forceWidth" style="margin-bottom: 10px;">DEAL</button>
+                                </div>
 
-                        <br>
+                                <div id="showHit_and_stayBtns" class="row">
 
-                        <div id="PlayerInfo" class="row">
+                                    <button id="hitBtn" type="button" class="btn btn-warning forceWidth" style="margin-bottom: 10px;">HIT</button>
 
-                            <h3>{{gameData2.name}}</h3>
-                            <img id="icon" src={{gameData2.icon}}>
-                            <h3>$
-                                <span id="playerFunds">{{gameData2.total_credits}}</span>
-                            </h3>
-                        </div>
-
-                        <div id="sideButtons" class="col-md-2">
-                            <div id="hideDealerBtn" class="row">
-                                <button id="dealBtn" type="button" class="btn btn-danger forceWidth" style="margin-bottom: 10px;">DEAL</button>
-
-                            </div>
-
-                            <div id="showHit_and_stayBtns" class="row">
-
-                                <button id="hitBtn" type="button" class="btn btn-warning forceWidth" style="margin-bottom: 10px;">HIT</button>
-
-                                <button id="stayBtn" type="button" class="btn btn-warning forceWidth" style="margin-bottom: 10px;">STAY</button>
-                            </div>
-                            <div class="row">
-                                <button id="addMoney" class="btn btn-success forceWidth"> Add $</button>
-                            </div>
-                            <div class="row">
-                                <button id="cashOut" class="btn btn-danger forceWidth">Cash Out</button>
+                                    <button id="stayBtn" type="button" class="btn btn-warning forceWidth" style="margin-bottom: 10px;">STAY</button>
+                                </div>
+                                <div class="row">
+                                    <button id="addMoney" class="btn btn-success forceWidth"> Add $</button>
+                                </div>
+                                <div class="row">
+                                    <button id="cashOut" class="btn btn-danger forceWidth">Cash Out</button>
+                                </div>
                             </div>
                         </div>
 

@@ -1,7 +1,7 @@
 //This is for after the player logs in. 
 console.log("Hello World!");
-var newMoney;
-var playerFunds;
+var newMoney; //used in the add money button
+var playerFunds; //used in the add money button
 var dealer;
 var player;
 var score;
@@ -10,17 +10,17 @@ var userScore;
 var userBet;
 
 
-
 $(document).ready(function () {
-    $("#mainCard").hide();
-    $("#showHit_and_stayBtns").hide();
-    document.getElementById("cashOut").disabled = true;
     $("#bets").show();
+    $("#showHit_and_stayBtns").hide();
+    $("#mainCard").hide();
+
+    // document.getElementById("cashOut").disabled = true;
 
     //sign up form to create a new player
     $("#signUpSubmit").on("click", function (event) {
         event.preventDefault();
-        console.log("I clicked");
+        // console.log("I clicked");
         var newPlayer = {
             name: $("#signUpName").val().trim(),
             email: $("#inputEmail4").val().trim(),
@@ -35,15 +35,9 @@ $(document).ready(function () {
             data: newPlayer
 
         }).then(function (info) {
-
-
-
             window.location.href = "/index/" + info.id;
             console.log(info);
-            console.log("successfully signed up!");
-
-
-
+            console.log("successfully signed up!"); s
         });
 
     });
@@ -61,8 +55,6 @@ $(document).ready(function () {
             // type: 'GET',
             '/api/players/signin',
             user
-
-
         )
             .then(function (data) {
                 console.log("ajax user callback");
@@ -91,22 +83,13 @@ $(document).ready(function () {
 
     $("#betAll").on("click", function (event) {
         event.preventDefault();
-        userBet = playerFunds;
+        var playerFunds = document.getElementById("playerFunds").innerText;
+        userBet = parseInt(playerFunds);
         $("#bets").hide();
         $("#mainCard").show();
     });
 
 
-    // $("#cashOut").on("click", function (event) {
-    //     event.preventDefault();
-    //     $.ajax({
-    //         method: "GET",
-    //         url: "api/player/signout"
-    //     }).then(function (response) {
-    //         console.log(response);
-    //     })
-
-    // });
 
 
     //the function states that it is not a number
@@ -136,6 +119,7 @@ $(document).ready(function () {
         $("#dealBtn").hide();
         $("#showHit_and_stayBtns").show();
     })
+
     $("#hitBtn").on("click", function () {
         console.log("hit clicked ")
         hitMe();
@@ -151,7 +135,7 @@ $(document).ready(function () {
         //if dealer score is less <= 17;
 
         switch (scorePos) {
-            case dealerScore <= 17:
+            case dealerScore >= 17:
                 dealerResult();
                 break;
 
@@ -168,35 +152,51 @@ $(document).ready(function () {
 
         }
 
-
     });
 
     function dealerWin() {
-
         console.log("You Lose!");
         userBet--;
+        restartGame();
     }
 
     function dealerResult() {
         if (dealerScore <= 21 && userScore !== 21) {
             console.log("Dealer Wins..")
             userBet--;
+            restartGame();
         } else {
             console.log("You Win!");
             userBet++
+            restartGame();
         }
-    }
+    };
 
     function userWin() {
         console.log("You Win!");
         userBet++;
+        restartGame();
+    };
 
-    }
+    function restartGame() {
+        $("#mainCard").hide();
+        $("#showHit_and_stayBtns").hide();
+        $("#bets").show();
+    };
 
 });
 
 
+ // $("#cashOut").on("click", function (event) {
+    //     event.preventDefault();
+    //     $.ajax({
+    //         method: "GET",
+    //         url: "api/player/signout"
+    //     }).then(function (response) {
+    //         console.log(response);
+    //     })
 
+    // });
 
 
 // $("#cashOut").on("click", function (event) {
