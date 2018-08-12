@@ -7,12 +7,11 @@
             <div class="col-md-12">
                 <div id="mainCard" class="card">
                     <div class="card-body">
-
+                        <h6 class="card-subtitle mb-2 text-muted">Dealer's Cards</h6>
 
                         <div class="row">
                             <div class="col-md-12">
                                 <h6 class="card-subtitle mb-2 text-muted">Dealer's Cards</h6>
-                                {{!!--dynamically create cards based on how many have been played during the hand}}
 
                                 <div id="dealerPlacement" class="row">
 
@@ -51,15 +50,13 @@
                         <button id="dealBtn" type="button" class="btn btn-danger forceWidth" style="margin-bottom: 10px;">DEAL</button>
 
                     </div>
-                    <div id="showHit_and_stayBtns" class="row">
-                        <button id="hitBtn" type="button" class="btn btn-warning forceWidth" style="margin-bottom: 10px;">HIT</button>
-                        <button id="stayBtn" type="button" class="btn btn-warning forceWidth" style="margin-bottom: 10px;">STAY</button>
-                    </div>
-                    <div class="row">
-                        <button id="addMoney" class="btn btn-success forceWidth"> Add $</button>
-                    </div>
-                    <div class="row">
-                        <button id="cashOut" class="btn btn-danger forceWidth">Cash Out</button>
+                    <div id="sideButtons" class="col-md-2">
+                        <div class="row">
+                            <button id="addMoney" class="btn btn-success forceWidth"> Add $10</button>
+                        </div>
+                        <div class="row">
+                            <button id="cashOut" class="btn btn-danger forceWidth">Cash Out</button>
+                        </div>
                     </div>
                 </div>
             </div>

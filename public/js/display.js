@@ -6,6 +6,8 @@ var playerFunds;
 $(document).ready(function () {
     $("#showHit_and_stayBtns").hide();
 
+
+
     //sign up form to create a new player
     $("#signUpSubmit").on("click", function (event) {
         event.preventDefault();
@@ -66,7 +68,12 @@ $(document).ready(function () {
 
     $("#cashOut").on("click", function (event) {
         event.preventDefault();
-        cashOut();
+        $.ajax({
+            method: "GET",
+            url: "api/player/signout"
+        }).then(function (response) {
+            console.log(response);
+        })
 
     });
 
@@ -89,6 +96,8 @@ $(document).ready(function () {
         alert("You added $10");
 
     })
+
+
     $("#dealBtn").on("click", function () {
         // document.getElementById("#dealBtn").disabled = true;
 
@@ -105,7 +114,12 @@ $(document).ready(function () {
 
 
 
+// $("#cashOut").on("click", function (event) {
 
+//     event.preventDefault();
+//     var playerIdSet = $(this).data("player-id");
+//     playerUpDatter(playerIdSet, false);
+// });
 
 
 
