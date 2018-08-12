@@ -1,9 +1,22 @@
-img.monop {
-    height: 50px;
-    width: 60px;
-    margin: 10px;
+.form-check-label {
+    margin-bottom: 0;
+    overflow: hidden;
+    position: relative;
+    width: 100px;
+    margin-top: 5px;
+    padding: 0;
+    height: 100px;
 }
-
+img.monop {
+    position: absolute;
+    top: -100px;
+    left: 0;
+    width: 100%;
+}
+.form-check-input:hover + .form-check-label,
+.form-check-label:hover img {
+  top: 0px;
+}
 #createPlayer {
     background-color: lightgray;
     
@@ -44,18 +57,8 @@ img.monop {
 .playerIcons:hover {
     background: white;
 }
-.form-check-label:hover img {
-  
-    height: 60px;
-    width: 70px;
-    margin: 10px;
-}
-.form-check .form-check-label img {
-    border: 1px solid black;
-    
 
-    
-}
+
 #logInBox {
   
     margin: 0 auto;
