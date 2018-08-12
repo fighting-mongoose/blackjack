@@ -23,11 +23,12 @@ $(document).ready(function () {
             type: "POST",
             data: newPlayer
 
-        }).then(function () {
+        }).then(function (info) {
 
 
 
-            window.location.href = "/index";
+            window.location.href = "/index/" + info.id;
+            console.log(info);
             console.log("successfully signed up!");
 
 
@@ -41,23 +42,26 @@ $(document).ready(function () {
         event.preventDefault();
 
         var user = {
-            email: $("#inputEmail4").val(),
-            password: $("#inputPassword4").val()
+            email: $("#inputEmail4").val().trim(),
+            password: $("#inputPassword4").val().trim()
         };
 
-        $.ajax({
-            type: 'GET',
-            data: JSON.stringify(user),
-            contentType: 'application/json',
-            url: 'http://localhost:3000/api/players/signin',
+        $.post(
+            // type: 'GET',
+            '/api/players/signin',
+            user
 
-        }).then(function (data) {
-            if (data == true) {
-                window.location.href = "/index";
-            } else {
-                alert("You are not a player!")
-            }
-        });
+
+        )
+            .then(function (data) {
+                console.log("ajax user callback");
+                if (data != null) {
+                    window.location.href = "/index/" + data.id;
+                    console.log("data = " + data.id);
+                } else {
+                    alert("You are not a player!")
+                }
+            });
     })
 
     $("#cashOut").on("click", function (event) {
@@ -69,10 +73,20 @@ $(document).ready(function () {
 
     //the function states that it is not a number
     $("#addMoney").on("click", function (event) {
-        event.preventDefault();
+        playerFunds = document.getElementById("playerFunds").innerText;
+        console.log(playerFunds);
+
+        playerFunds = parseInt(playerFunds);
+
         console.log("add $ function has been run");
 
-        $("#playerFunds").append("$" + newMoney);
+        event.preventDefault();
+        playerFunds = playerFunds + 10;
+        newMoney = playerFunds;
+        $("#playerFunds").text(newMoney);
+        console.log(playerFunds);
+        console.log(newMoney);
+        alert("You added $10");
 
     })
     $("#dealBtn").on("click", function () {
