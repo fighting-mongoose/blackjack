@@ -17,6 +17,7 @@ img.monop {
 .form-check-label:hover img {
   top: 0px;
 }
+
 #createPlayer {
     background-color: lightgray;
     
@@ -26,6 +27,7 @@ img.monop {
     margin-top: 50px;
     color: black;
 }
+
 .sign_up {
     box-shadow: 0 0 10px black;
  

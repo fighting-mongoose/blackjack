@@ -52,11 +52,7 @@ function player(deck) {
     //    players hand is goes to
     cardPlacement.append("<img src=" + '"/pics/' + playersCards[0].name + playersCards[0].cardsSuite + '.png' + '"' + 'value=' + '"' + playersCards[0].value + '"' + 'id=' + '"' + 'cardImg' + '"' + "/>" + "<img src=" + '"/pics/' + playersCards[1].name + playersCards[1].cardsSuite + '.png' + '"' + 'value=' + '"' + playersCards[1].value + '"' + 'id=' + '"' + 'cardImg' + '"' + "/>")
 
-
 }
-
-
-
 
 var dealersHand = [];
 

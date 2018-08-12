@@ -2,9 +2,20 @@
 console.log("Hello World!");
 var newMoney;
 var playerFunds;
+var dealer;
+var player;
+var score;
+var dealerScore;
+var userScore;
+var userBet;
+
+
 
 $(document).ready(function () {
+    $("#mainCard").hide();
     $("#showHit_and_stayBtns").hide();
+    document.getElementById("cashOut").disabled = true;
+    $("#bets").show();
 
     //sign up form to create a new player
     $("#signUpSubmit").on("click", function (event) {
@@ -62,25 +73,51 @@ $(document).ready(function () {
                     alert("You are not a player!")
                 }
             });
-    })
-
-    $("#cashOut").on("click", function (event) {
-        event.preventDefault();
-        cashOut();
-
     });
+
+    $("#betFive").on("click", function (event) {
+        event.preventDefault();
+        userBet = 5;
+        $("#bets").hide();
+        $("#mainCard").show();
+    });
+
+    $("#betTen").on("click", function (event) {
+        event.preventDefault();
+        userBet = 10;
+        $("#bets").hide();
+        $("#mainCard").show();
+    });
+
+    $("#betAll").on("click", function (event) {
+        event.preventDefault();
+        userBet = playerFunds;
+        $("#bets").hide();
+        $("#mainCard").show();
+    });
+
+
+    // $("#cashOut").on("click", function (event) {
+    //     event.preventDefault();
+    //     $.ajax({
+    //         method: "GET",
+    //         url: "api/player/signout"
+    //     }).then(function (response) {
+    //         console.log(response);
+    //     })
+
+    // });
 
 
     //the function states that it is not a number
     $("#addMoney").on("click", function (event) {
+        event.preventDefault();
         playerFunds = document.getElementById("playerFunds").innerText;
         console.log(playerFunds);
-
         playerFunds = parseInt(playerFunds);
 
         console.log("add $ function has been run");
 
-        event.preventDefault();
         playerFunds = playerFunds + 10;
         newMoney = playerFunds;
         $("#playerFunds").text(newMoney);
@@ -89,6 +126,8 @@ $(document).ready(function () {
         alert("You added $10");
 
     })
+
+
     $("#dealBtn").on("click", function () {
         // document.getElementById("#dealBtn").disabled = true;
 
@@ -101,11 +140,71 @@ $(document).ready(function () {
         console.log("hit clicked ")
         hitMe();
     });
+
+
+
+    //These do not work yet. I need math logic that adds the cards together as they are dealt 
+    $("#stayBtn").on("click", function () {
+
+        $("#stayBtn").disabled = true;
+
+        //if dealer score is less <= 17;
+
+        switch (scorePos) {
+            case dealerScore <= 17:
+                dealerResult();
+                break;
+
+            case dealerScore = 21 && userScore !== 21:
+                dealerWin();
+                break;
+
+            case userScore = 21:
+                userWin();
+                break;
+
+            default:
+                console.log("there was an error in the adding logic");
+
+        }
+
+
+    });
+
+    function dealerWin() {
+
+        console.log("You Lose!");
+        userBet--;
+    }
+
+    function dealerResult() {
+        if (dealerScore <= 21 && userScore !== 21) {
+            console.log("Dealer Wins..")
+            userBet--;
+        } else {
+            console.log("You Win!");
+            userBet++
+        }
+    }
+
+    function userWin() {
+        console.log("You Win!");
+        userBet++;
+
+    }
+
 });
 
 
 
 
+
+// $("#cashOut").on("click", function (event) {
+
+//     event.preventDefault();
+//     var playerIdSet = $(this).data("player-id");
+//     playerUpDatter(playerIdSet, false);
+// });
 
 
 

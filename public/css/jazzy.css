@@ -2,10 +2,10 @@
    background-color: black;
 }
 
-.timer {
+/* .timer {
    font-size: 25px;
    color: black;
-}
+} */
 #main {
    background-image: url('/pics/12282014BlackjackTable.jpg');
    background-repeat: no-repeat center;
@@ -44,11 +44,11 @@
    width: 103.2%;
 }
 
-#pOne {
+/* #pOne {
    height: auto;
    border: solid black 2px;
    background-color: whitesmoke;
-}
+} */
 
 /* #pTwo {
   position: relative;
@@ -68,11 +68,15 @@
  
 }
 
-/* #pThree {
-   height: auto;
-   border: solid black 2px;
-   background-color: whitesmoke;
-} */
+#betQuestion {
+  color: white;
+
+}
+
+#bets {
+  margin: 10px;
+}
+
 
 /* .right-align {
    margin: 0 0 0 auto;
