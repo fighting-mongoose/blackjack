@@ -68,12 +68,12 @@ function dealer(deck) {
     var dealerPlacement = $('#dealerPlacement');
 
     dealerPlacement.append("<img src=" + '"/pics/' + dealersHand[0].name + dealersHand[0].cardsSuite + '.png' + '"' + 'value=' + '"' + dealersHand[0].value + '"' + 'id=' + '"' + 'cardImg' + '"' + "/>" + "<img src=" + '"/pics/' + dealersHand[1].name + dealersHand[1].cardsSuite + '.png' + '"' + 'value=' + '"' + dealersHand[1].value + '"' + 'id=' + '"' + 'cardImg' + '"' + "/>")
-    $('#total').append(dealersHand[0] + dealersHand[0]);
+    $('#total').append(dealersHand[0].value + dealersHand[1].value);
 
     for (var m = 0; m < dealersHand.length; m++) {
 
         // var cards = Math.floor(Math.random() * 52) + 1;
-        return dealersHand.splice(deck, 1)[0];
+        //return dealersHand.splice(deck, 1)[0];
         console.log(deck.length);
 
         console.log(deck + "removing cards from array");
@@ -88,6 +88,7 @@ function hitMe() {
     deck.splice(randomCardGrabber, 1);
     console.log("hit function");
     $('#cardPlacement').append("<img src=" + '"/pics/' + playersCards[playersCards.length - 1].name + playersCards[playersCards.length - 1].cardsSuite + '.png' + '"' + 'value=' + '"' + playersCards[playersCards.length - 1].value + '"' + 'id=' + '"' + 'cardImg' + '"' + "/>")
+
 }
 
 GenerateCards();
