@@ -72,7 +72,7 @@ $(document).ready(function () {
         var playerFunds = document.getElementById("playerFunds").innerText;
         if (playerFunds < 5) {
             console.log("Sorry you don't have enough to bet...");
-            confirm("Add $10");
+            confirm("Sorry you don't have enough to bet Add $10?");
         } else {
             userBet = 5;
             playerFunds = playerFunds - 5;
@@ -88,7 +88,7 @@ $(document).ready(function () {
 
         if (playerFunds < 10) {
             console.log("Sorry you don't have enough to bet...");
-            confirm("Add $10");
+            confirm("Sorry you don't have enough to bet Add $10?");
             playerFunds += 10;
             $("#playerFunds").text(playerFunds);
         } else {
@@ -113,7 +113,7 @@ $(document).ready(function () {
             $("#mainCard").show();
         } else {
             console.log("Sorry you don't have enough to bet...");
-            confirm("Add $10");
+            confirm("Sorry you don't have enough to bet Add $10?");
             playerFunds += 10;
             $("#playerFunds").text(playerFunds);
 
@@ -127,13 +127,13 @@ $(document).ready(function () {
         console.log(playerFunds);
         playerFunds = parseInt(playerFunds);
 
-        console.log("add $ function has been run");
+        // console.log("add $ function has been run");
 
         playerFunds = playerFunds + 10;
         newMoney = playerFunds;
         $("#playerFunds").text(newMoney);
-        console.log(playerFunds);
-        console.log(newMoney);
+        // console.log(playerFunds);
+        // console.log(newMoney);
         alert("You added $10");
 
     });
@@ -144,19 +144,26 @@ $(document).ready(function () {
 
 
 
-
     };
+
+    //more than one 
+
+    // if (cardTotal > 10) {
+    //     ace = 1;
+    // } else {
+    //     ace = 11;
+    // }
+
 
 
     $("#dealBtn").on("click", function () {
         // document.getElementById("#dealBtn").disabled = true;
-
         dealer(deck);
         player(deck);
         $("#dealBtn").hide();
         $("#showHit_and_stayBtns").show();
         // totals();
-    })
+    });
 
     $("#hitBtn").on("click", function () {
         // console.log("hit clicked ")

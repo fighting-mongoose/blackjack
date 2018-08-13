@@ -60,6 +60,13 @@ img.monop {
     background: white;
 }
 
+#startingWith {
+    color: white;
+    text-align: left !important;
+    font-family: 'Oswald', sans-serif;
+    background-color: rgba(0, 0, 0, 0.787);
+
+}
 
 #logInBox {
   
