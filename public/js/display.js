@@ -79,6 +79,7 @@ $(document).ready(function () {
             $("#playerFunds").text(playerFunds);
             $("#bets").hide();
             $("#mainCard").show();
+            $("#dealBtn").show();
         }
     });
 
@@ -97,6 +98,7 @@ $(document).ready(function () {
             $("#playerFunds").text(playerFunds);
             $("#bets").hide();
             $("#mainCard").show();
+            $("#dealBtn").show();
 
         }
     });
@@ -111,11 +113,13 @@ $(document).ready(function () {
             $("#playerFunds").text(playerFunds);
             $("#bets").hide();
             $("#mainCard").show();
+            $("#dealBtn").show();
         } else {
             console.log("Sorry you don't have enough to bet...");
             confirm("Sorry you don't have enough to bet Add $10?");
             playerFunds += 10;
             $("#playerFunds").text(playerFunds);
+
 
         }
     });
@@ -138,12 +142,32 @@ $(document).ready(function () {
 
     });
 
-    function totals() {
-        var totalVal = playersCards.value;
-        playersCards
-
-
-
+    function totals(hand) {
+        var playerHand = [];
+        var playerAce = [];
+        for (i = 0; i < hand.length; i++) {
+            if (hand[i].name == "ace") {
+                playerAce.push(hand[i]);
+            } else {
+                playerHand.push(hand[i]);
+            }
+        };
+        console.log(playerHand)
+        console.log(playerAce);
+        var total = 0;
+        for (i = 0; i < playerHand.length; i++) {
+            console.log(playerHand[i].value);
+            total = total + parseInt(playerHand[i].value);
+        }
+        for (i = 0; i < playerAce.length; i++) {
+            var total = total + playerAce[i].value[1];
+        }
+        for (i = 0; i < playerAce.length; i++) {
+            if (total > 21) {
+                total = total - 10;
+            }
+        }
+        return total;
     };
 
     //more than one 
@@ -168,7 +192,10 @@ $(document).ready(function () {
     $("#hitBtn").on("click", function () {
         // console.log("hit clicked ")
         hitMe();
-        // totals();
+        if (totals(playersCards) > 21) {
+            dealerWin();
+        };
+
     });
 
 
@@ -177,31 +204,35 @@ $(document).ready(function () {
     $("#stayBtn").on("click", function () {
 
         $("#stayBtn").disabled = true;
-
+        console.log(playersCards);
+        dealerScore = totals(dealersHand);
+        userScore = totals(playersCards);
+        console.log("player total " + userScore);
+        console.log("dealer total " + dealerScore);
         //if dealer score is less <= 17;
 
-        switch (score) {
-            case dealerScore >= 17:
-                dealerResult();
-                break;
 
-            case dealerScore = 21 && userScore !== 21:
-                dealerWin();
-                break;
-
-            case userScore = 21:
-                userWin();
-                break;
-
-            default:
-                console.log("there was an error in the adding logic");
-
+        if (userScore > 21) {
+            dealerWin();
+        } else if (dealerScore < 21 && dealerScore > userScore) {
+            dealerWin();
+        } else if (userScore == 21) {
+            userWin();
+        } else if (userScore == dealerScore) {
+            tiedGame();
+        } else if (userScore < 21 && userScore > dealerScore) {
+            userWin();
+        } else {
+            console.log("there was an error in the adding logic");
         }
-
     });
-
+    function tiedGame() {
+        alert("no winner")
+        userBet++;
+        restartGame();
+    };
     function dealerWin() {
-        console.log("You Lose!");
+        alert("You Lose!");
         userBet--;
         restartGame();
     }
@@ -219,7 +250,7 @@ $(document).ready(function () {
     };
 
     function userWin() {
-        console.log("You Win!");
+        alert("You Win!");
         userBet++;
         restartGame();
     };
@@ -228,6 +259,13 @@ $(document).ready(function () {
         $("#mainCard").hide();
         $("#showHit_and_stayBtns").hide();
         $("#bets").show();
+        playersCards = [];
+        dealersHand = [];
+        deck = [];
+        GenerateCards();
+        $("#cardPlacement").empty();
+        $("#dealerPlacement").empty();
+        $("#total").empty();
     };
 
 
