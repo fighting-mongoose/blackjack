@@ -69,28 +69,56 @@ $(document).ready(function () {
 
     $("#betFive").on("click", function (event) {
         event.preventDefault();
-        userBet = 5;
-        $("#bets").hide();
-        $("#mainCard").show();
+        var playerFunds = document.getElementById("playerFunds").innerText;
+        if (playerFunds < 5) {
+            console.log("Sorry you don't have enough to bet...");
+            confirm("Sorry you don't have enough to bet Add $10?");
+        } else {
+            userBet = 5;
+            playerFunds = playerFunds - 5;
+            $("#playerFunds").text(playerFunds);
+            $("#bets").hide();
+            $("#mainCard").show();
+        }
     });
 
     $("#betTen").on("click", function (event) {
         event.preventDefault();
-        userBet = 10;
-        $("#bets").hide();
-        $("#mainCard").show();
+        var playerFunds = document.getElementById("playerFunds").innerText;
+
+        if (playerFunds < 10) {
+            console.log("Sorry you don't have enough to bet...");
+            confirm("Sorry you don't have enough to bet Add $10?");
+            playerFunds += 10;
+            $("#playerFunds").text(playerFunds);
+        } else {
+            userBet = 10;
+            playerFunds = playerFunds - 10;
+            $("#playerFunds").text(playerFunds);
+            $("#bets").hide();
+            $("#mainCard").show();
+
+        }
     });
 
     $("#betAll").on("click", function (event) {
         event.preventDefault();
         var playerFunds = document.getElementById("playerFunds").innerText;
         userBet = parseInt(playerFunds);
-        $("#bets").hide();
-        $("#mainCard").show();
+
+        if (playerFunds !== 0) {
+            playerFunds = 0;
+            $("#playerFunds").text(playerFunds);
+            $("#bets").hide();
+            $("#mainCard").show();
+        } else {
+            console.log("Sorry you don't have enough to bet...");
+            confirm("Sorry you don't have enough to bet Add $10?");
+            playerFunds += 10;
+            $("#playerFunds").text(playerFunds);
+
+        }
     });
-
-
-
 
     //the function states that it is not a number
     $("#addMoney").on("click", function (event) {
@@ -99,30 +127,48 @@ $(document).ready(function () {
         console.log(playerFunds);
         playerFunds = parseInt(playerFunds);
 
-        console.log("add $ function has been run");
+        // console.log("add $ function has been run");
 
         playerFunds = playerFunds + 10;
         newMoney = playerFunds;
         $("#playerFunds").text(newMoney);
-        console.log(playerFunds);
-        console.log(newMoney);
+        // console.log(playerFunds);
+        // console.log(newMoney);
         alert("You added $10");
 
-    })
+    });
+
+    function totals() {
+        var totalVal = playersCards.value;
+        playersCards
+
+
+
+    };
+
+    //more than one 
+
+    // if (cardTotal > 10) {
+    //     ace = 1;
+    // } else {
+    //     ace = 11;
+    // }
+
 
 
     $("#dealBtn").on("click", function () {
         // document.getElementById("#dealBtn").disabled = true;
-
         dealer(deck);
         player(deck);
         $("#dealBtn").hide();
         $("#showHit_and_stayBtns").show();
-    })
+        // totals();
+    });
 
     $("#hitBtn").on("click", function () {
-        console.log("hit clicked ")
+        // console.log("hit clicked ")
         hitMe();
+        // totals();
     });
 
 
@@ -134,7 +180,7 @@ $(document).ready(function () {
 
         //if dealer score is less <= 17;
 
-        switch (scorePos) {
+        switch (score) {
             case dealerScore >= 17:
                 dealerResult();
                 break;
@@ -183,6 +229,8 @@ $(document).ready(function () {
         $("#showHit_and_stayBtns").hide();
         $("#bets").show();
     };
+
+
 
 });
 
