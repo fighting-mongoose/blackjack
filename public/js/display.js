@@ -183,7 +183,18 @@ $(document).ready(function () {
         if (totals(playersCards) > 21) {
             document.getElementById("hitBtn").disabled = true;
             setTimeout(function () { dealerWin(); }, 3000);
-        };
+        } if (totals(playersCards) === 21) {
+            document.getElementById("hitBtn").disabled = true;
+            setTimeout(function () { userWin(); }, 3000);
+
+        } if (totals(dealersHand) === 21) {
+            document.getElementById("hitBtn").disabled = true;
+            setTimeout(function () { dealerWin(); }, 3000);
+        } else {
+            //this is for a tie game
+            document.getElementById("hitBtn").disabled = true;
+            setTimeout(function () { userWin(); }, 3000);
+        }
 
     });
 
