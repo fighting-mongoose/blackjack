@@ -145,7 +145,9 @@ $(document).ready(function () {
     function totals(hand) {
         var playerHand = [];
         var playerAce = [];
+        console.log("before the hand name")
         for (i = 0; i < hand.length; i++) {
+            console.log("hand: " + hand[i].name)
             if (hand[i].name == "ace") {
                 playerAce.push(hand[i]);
             } else {
@@ -182,7 +184,7 @@ $(document).ready(function () {
         hitMe();
         if (totals(playersCards) > 21) {
             document.getElementById("hitBtn").disabled = true;
-            setTimeout(function () { dealerWin(); }, 3000);
+            setTimeout(function () { dealerWin(); }, 30);
         } if (totals(playersCards) === 21) {
             document.getElementById("hitBtn").disabled = true;
             setTimeout(function () { userWin(); }, 3000);
