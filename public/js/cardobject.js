@@ -58,7 +58,7 @@ function player(deck) {
 function dealer(deck) {
 
     for (var p = 0; p < 2; p++) {
-        var randomCardGrabber = Math.floor(Math.random() * 51);
+        var randomCardGrabber = Math.floor(Math.random() * deck.length);
 
         dealersHand.push(deck[randomCardGrabber]);
         deck.splice(randomCardGrabber, 1);
