@@ -108,7 +108,7 @@ $(document).ready(function () {
         var playerFunds = document.getElementById("playerFunds").innerText;
         userBet = parseInt(playerFunds);
 
-        if (playerFunds !== 0) {
+        if (playerFunds <= 0) {
             playerFunds = 0;
             $("#playerFunds").text(playerFunds);
             $("#bets").hide();
@@ -233,19 +233,22 @@ $(document).ready(function () {
 
     function tiedGame() {
         alert("Tie Game");
-        userBet++;
+        var playerFunds = document.getElementById("playerFunds").innerText;
+        playerFunds += userBet;
         restartGame();
     };
 
     function dealerWin() {
         alert("You Lose!");
-        userBet--;
+        var playerFunds = document.getElementById("playerFunds").innerText;
+        playerFunds -= userBet;
         restartGame();
     };
 
     function userWin() {
         alert("You Win!");
-        userBet++;
+        var playerFunds = document.getElementById("playerFunds").innerText;
+        playerFunds += userBet;
         restartGame();
     };
 

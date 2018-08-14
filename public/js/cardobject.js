@@ -53,8 +53,6 @@ function player(deck) {
 
 }
 
-
-
 function dealer(deck) {
 
     for (var p = 0; p < 2; p++) {
