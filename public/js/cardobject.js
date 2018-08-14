@@ -44,7 +44,7 @@ function player(deck) {
         var randomCardGrabber = Math.floor(Math.random() * 51);
         playersCards.push(deck[randomCardGrabber]);
         deck.splice(randomCardGrabber, 1);
-        console.log(playersCards[p])
+        console.log("card grabber " + playersCards[p].name)
     }
 
     var cardPlacement = $('#cardPlacement');
@@ -83,10 +83,11 @@ function dealer(deck) {
 }
 /// HIT FUNCTION
 function hitMe() {
-    var randomCardGrabber = Math.floor(Math.random() * 51);
+    var randomCardGrabber = Math.floor(Math.random() * (deck.length));
+    console.log("cardnumber " + randomCardGrabber)
     playersCards.push(deck[randomCardGrabber]);
     deck.splice(randomCardGrabber, 1);
-    console.log("hit function");
+    console.log("hit function: " + playersCards.length);
     $('#cardPlacement').append("<img src=" + '"/pics/' + playersCards[playersCards.length - 1].name + playersCards[playersCards.length - 1].cardsSuite + '.png' + '"' + 'value=' + '"' + playersCards[playersCards.length - 1].value + '"' + 'id=' + '"' + 'cardImg' + '"' + "/>");
 
 }
