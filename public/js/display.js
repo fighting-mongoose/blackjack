@@ -234,22 +234,27 @@ $(document).ready(function () {
 
     function tiedGame() {
         alert("Tie Game");
-        var playerFunds = document.getElementById("playerFunds").innerText;
+        playerFunds = parseInt(document.getElementById("playerFunds").innerText);
         playerFunds += userBet;
+        $("#playerFunds").text(playerFunds);
         restartGame();
     };
 
     function dealerWin() {
         alert("You Lose!");
-        var playerFunds = document.getElementById("playerFunds").innerText;
+        playerFunds = parseInt(document.getElementById("playerFunds").innerText);
+        console.log(playerFunds);
         playerFunds -= userBet;
+        $("#playerFunds").text(playerFunds);
         restartGame();
     };
 
     function userWin() {
         alert("You Win!");
-        var playerFunds = document.getElementById("playerFunds").innerText;
-        playerFunds += userBet;
+        playerFunds = parseInt(document.getElementById("playerFunds").innerText);
+        console.log(playerFunds);
+        playerFunds += (2 * userBet);
+        $("#playerFunds").text(playerFunds);
         restartGame();
     };
 
