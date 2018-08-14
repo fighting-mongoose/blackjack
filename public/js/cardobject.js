@@ -65,7 +65,7 @@ function dealer(deck) {
 
     var dealerPlacement = $('#dealerPlacement');
 
-    dealerPlacement.append("<img src=" + '"/pics/' + dealersHand[0].name + dealersHand[0].cardsSuite + '.png' + '"' + 'value=' + '"' + dealersHand[0].value + '"' + 'id=' + '"' + 'cardImg' + '"' + "/>" + "<img src=" + '"/pics/' + dealersHand[1].name + dealersHand[1].cardsSuite + '.png' + '"' + 'value=' + '"' + dealersHand[1].value + '"' + 'id=' + '"' + 'cardImg' + '"' + "/>")
+    dealerPlacement.append("<img src=" + '"/pics/blank' + '.png' + '"' + 'value=' + '"' + dealersHand[0].value + '"' + 'id=' + '"' + 'cardImg' + '"' + "/>" + "<img src=" + '"/pics/' + dealersHand[1].name + dealersHand[1].cardsSuite + '.png' + '"' + 'value=' + '"' + dealersHand[1].value + '"' + 'id=' + '"' + 'cardImg' + '"' + "/>")
     $('#total').append(dealersHand[0].value + dealersHand[1].value);
 
     for (var m = 0; m < dealersHand.length; m++) {
