@@ -41,7 +41,7 @@ function Card(name, suite) {
 function player(deck) {
 
     for (var p = 0; p < 2; p++) {
-        var randomCardGrabber = Math.floor(Math.random() * 51);
+        var randomCardGrabber = Math.floor(Math.random() * deck.length);
         playersCards.push(deck[randomCardGrabber]);
         deck.splice(randomCardGrabber, 1);
         // console.log("card grabber " + playersCards[p].name)
