@@ -103,3 +103,7 @@
 h6 {
   color: whitesmoke !important;
 }
+
+#total {
+  margin: 0 0 0 10px;
+}

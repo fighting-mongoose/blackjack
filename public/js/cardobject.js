@@ -76,7 +76,7 @@ function dealer(deck) {
         //return dealersHand.splice(deck, 1)[0];
         console.log(deck.length);
 
-        console.log(deck + "removing cards from array");
+        // console.log(deck + "removing cards from array");
     }
     // so passing out two cards per player. if player has cards then make it true.
 
@@ -87,7 +87,7 @@ function hitMe() {
     playersCards.push(deck[randomCardGrabber]);
     deck.splice(randomCardGrabber, 1);
     console.log("hit function");
-    $('#cardPlacement').append("<img src=" + '"/pics/' + playersCards[playersCards.length - 1].name + playersCards[playersCards.length - 1].cardsSuite + '.png' + '"' + 'value=' + '"' + playersCards[playersCards.length - 1].value + '"' + 'id=' + '"' + 'cardImg' + '"' + "/>")
+    $('#cardPlacement').append("<img src=" + '"/pics/' + playersCards[playersCards.length - 1].name + playersCards[playersCards.length - 1].cardsSuite + '.png' + '"' + 'value=' + '"' + playersCards[playersCards.length - 1].value + '"' + 'id=' + '"' + 'cardImg' + '"' + "/>");
 
 }
 
