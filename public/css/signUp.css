@@ -13,6 +13,7 @@ img.monop {
     left: 0;
     width: 100%;
 }
+
 .form-check-input:hover + .form-check-label,
 .form-check-label:hover img {
   top: 0px;

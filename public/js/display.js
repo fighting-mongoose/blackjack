@@ -170,18 +170,7 @@ $(document).ready(function () {
         return total;
     };
 
-    //more than one 
-
-    // if (cardTotal > 10) {
-    //     ace = 1;
-    // } else {
-    //     ace = 11;
-    // }
-
-
-
     $("#dealBtn").on("click", function () {
-        // document.getElementById("#dealBtn").disabled = true;
         dealer(deck);
         player(deck);
         $("#dealBtn").hide();
@@ -190,15 +179,13 @@ $(document).ready(function () {
     });
 
     $("#hitBtn").on("click", function () {
-        // console.log("hit clicked ")
         hitMe();
         if (totals(playersCards) > 21) {
-            dealerWin();
+            document.getElementById("hitBtn").disabled = true;
+            setTimeout(function () { dealerWin(); }, 3000);
         };
 
     });
-
-
 
     //These do not work yet. I need math logic that adds the cards together as they are dealt 
     $("#stayBtn").on("click", function () {
@@ -211,42 +198,36 @@ $(document).ready(function () {
         console.log("dealer total " + dealerScore);
         //if dealer score is less <= 17;
 
-
         if (userScore > 21) {
             dealerWin();
+
         } else if (dealerScore < 21 && dealerScore > userScore) {
             dealerWin();
+
         } else if (userScore == 21) {
             userWin();
+
         } else if (userScore == dealerScore) {
             tiedGame();
+
         } else if (userScore < 21 && userScore > dealerScore) {
             userWin();
+
         } else {
-            console.log("there was an error in the adding logic");
+            console.log("There was an error in the adding logic");
         }
     });
+
     function tiedGame() {
-        alert("no winner")
+        alert("Tie Game");
         userBet++;
         restartGame();
     };
+
     function dealerWin() {
         alert("You Lose!");
         userBet--;
         restartGame();
-    }
-
-    function dealerResult() {
-        if (dealerScore <= 21 && userScore !== 21) {
-            console.log("Dealer Wins..")
-            userBet--;
-            restartGame();
-        } else {
-            console.log("You Win!");
-            userBet++
-            restartGame();
-        }
     };
 
     function userWin() {
@@ -256,6 +237,7 @@ $(document).ready(function () {
     };
 
     function restartGame() {
+        document.getElementById("hitBtn").disabled = false;
         $("#mainCard").hide();
         $("#showHit_and_stayBtns").hide();
         $("#bets").show();
@@ -267,8 +249,6 @@ $(document).ready(function () {
         $("#dealerPlacement").empty();
         $("#total").empty();
     };
-
-
 
 });
 
