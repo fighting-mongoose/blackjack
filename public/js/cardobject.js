@@ -44,7 +44,7 @@ function player(deck) {
         var randomCardGrabber = Math.floor(Math.random() * 51);
         playersCards.push(deck[randomCardGrabber]);
         deck.splice(randomCardGrabber, 1);
-        console.log("card grabber " + playersCards[p].name)
+        // console.log("card grabber " + playersCards[p].name)
     }
 
     var cardPlacement = $('#cardPlacement');
