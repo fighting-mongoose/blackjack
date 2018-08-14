@@ -37,7 +37,7 @@ $(document).ready(function () {
         }).then(function (info) {
             window.location.href = "/index/" + info.id;
             console.log(info);
-            console.log("successfully signed up!"); s
+            console.log("successfully signed up!");
         });
 
     });
@@ -275,16 +275,17 @@ $(document).ready(function () {
 });
 
 
- // $("#cashOut").on("click", function (event) {
-    //     event.preventDefault();
-    //     $.ajax({
-    //         method: "GET",
-    //         url: "api/player/signout"
-    //     }).then(function (response) {
-    //         console.log(response);
-    //     })
+// $("#cashOut").on("click", function (event) {
+//     event.preventDefault();
+//     $.ajax({
+//         method: "GET",
+//         url: "api/player/signout"
+//     }).then(function (info) {
+//         console.log(info);
+//         window.location.href = "welcome";
+//     })
 
-    // });
+// });
 
 
 // $("#cashOut").on("click", function (event) {
