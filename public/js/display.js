@@ -184,19 +184,20 @@ $(document).ready(function () {
         hitMe();
         if (totals(playersCards) > 21) {
             document.getElementById("hitBtn").disabled = true;
-            setTimeout(function () { dealerWin(); }, 30);
-        } if (totals(playersCards) === 21) {
+            setTimeout(function () { dealerWin(); }, 1000);
+        } else if (totals(playersCards) === 21) {
             document.getElementById("hitBtn").disabled = true;
-            setTimeout(function () { userWin(); }, 3000);
+            setTimeout(function () { userWin(); }, 1000);
 
-        } if (totals(dealersHand) === 21) {
+        } else if (totals(dealersHand) === 21) {
             document.getElementById("hitBtn").disabled = true;
-            setTimeout(function () { dealerWin(); }, 3000);
-        } else {
-            //this is for a tie game
-            document.getElementById("hitBtn").disabled = true;
-            setTimeout(function () { userWin(); }, 3000);
+            setTimeout(function () { dealerWin(); }, 1000);
         }
+        //else {
+        //     //this is for a tie game
+        //     document.getElementById("hitBtn").disabled = true;
+        //     setTimeout(function () { userWin(); }, 3000);
+        // }
 
     });
 
