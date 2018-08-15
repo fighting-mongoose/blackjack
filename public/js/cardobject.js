@@ -41,7 +41,7 @@ function Card(name, suite) {
 function player(deck) {
 
     for (var p = 0; p < 2; p++) {
-        var randomCardGrabber = Math.floor(Math.random() * 51);
+        var randomCardGrabber = Math.floor(Math.random() * deck.length);
         playersCards.push(deck[randomCardGrabber]);
         deck.splice(randomCardGrabber, 1);
         // console.log("card grabber " + playersCards[p].name)
@@ -82,14 +82,17 @@ function dealer(deck) {
 
 }
 /// HIT FUNCTION
-function hitMe() {
+function hitMe(hit, person) {
     var randomCardGrabber = Math.floor(Math.random() * (deck.length));
     console.log("cardnumber " + randomCardGrabber)
-    playersCards.push(deck[randomCardGrabber]);
+    hit.push(deck[randomCardGrabber]);
     deck.splice(randomCardGrabber, 1);
-    console.log("hit function: " + playersCards.length);
-    $('#cardPlacement').append("<img src=" + '"/pics/' + playersCards[playersCards.length - 1].name + playersCards[playersCards.length - 1].cardsSuite + '.png' + '"' + 'value=' + '"' + playersCards[playersCards.length - 1].value + '"' + 'id=' + '"' + 'cardImg' + '"' + "/>");
-
+    console.log("hit function: " + hit.length);
+    if (person === "player") {
+        $('#cardPlacement').append("<img src=" + '"/pics/' + hit[hit.length - 1].name + hit[hit.length - 1].cardsSuite + '.png' + '"' + 'value=' + '"' + hit[hit.length - 1].value + '"' + 'id=' + '"' + 'cardImg' + '"' + "/>");
+    } else {
+        $('#dealerPlacement').append("<img src=" + '"/pics/' + hit[hit.length - 1].name + hit[hit.length - 1].cardsSuite + '.png' + '"' + 'value=' + '"' + hit[hit.length - 1].value + '"' + 'id=' + '"' + 'cardImg' + '"' + "/>");
+    }
 }
 
 GenerateCards();

@@ -181,7 +181,7 @@ $(document).ready(function () {
     });
 
     $("#hitBtn").on("click", function () {
-        hitMe();
+        hitMe(playersCards, "player");
         if (totals(playersCards) > 21) {
             document.getElementById("hitBtn").disabled = true;
             setTimeout(function () { dealerWin(); }, 1000);
@@ -210,26 +210,33 @@ $(document).ready(function () {
         userScore = totals(playersCards);
         console.log("player total " + userScore);
         console.log("dealer total " + dealerScore);
-        //if dealer score is less <= 17;
+        //if dealer score is less <= 15;
+        while (dealerScore < 15) {
+            console.log("dealer:::" + dealerScore);
+            hitMe(dealersHand, "dealer");
+            dealerScore = totals(dealersHand);
+        };
+        setTimeout(function () {
+            if (userScore > 21) {
+                dealerWin();
 
-        if (userScore > 21) {
-            dealerWin();
+            } else if (dealerScore < 21 && dealerScore > userScore) {
+                dealerWin();
 
-        } else if (dealerScore < 21 && dealerScore > userScore) {
-            dealerWin();
+            } else if (userScore == 21) {
+                userWin();
 
-        } else if (userScore == 21) {
-            userWin();
+            } else if (userScore == dealerScore) {
+                tiedGame();
 
-        } else if (userScore == dealerScore) {
-            tiedGame();
+            } else if (userScore < 21 && userScore > dealerScore) {
+                userWin();
 
-        } else if (userScore < 21 && userScore > dealerScore) {
-            userWin();
-
-        } else {
-            console.log("There was an error in the adding logic");
-        }
+            } else {
+                console.log("dealer lost: " + dealerScore);
+                userWin();
+            }
+        }, 1000);
     });
 
     function tiedGame() {
