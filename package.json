@@ -12,7 +12,7 @@
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.3",
-    "express": "^4.16.3",
+    "express": "^4.17.3",
     "express-handlebars": "^3.0.0",
     "jquery-simple-timer": "^1.0.1",
     "method-override": "^3.0.0",
